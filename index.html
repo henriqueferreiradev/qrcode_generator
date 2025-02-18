@@ -5,28 +5,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QRCode Gen</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./css/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js" defer></script>
 
 </head>
 
 <body>
-    <div class="div_qr">
-        <div id="qrcode">
-         
-        </div>
-        <input class="input_text-login" type="text" placeholder="Login da rede">
-        <input class="input_text-senha" type="text" placeholder="Senha da rede">
-        <div>
-            <label for="favcolor">QrColor</label>
-            <input type="color" id="favcolor" value="#ff0000">
-            <label for="favcolor">Background</label>
-            <input type="color" id="favcolor" value="#ff0000">
-        </div>
-        <button class="code_generator" onclick="gerarQr()">Download QrCode</button>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"></script>
+    <div class="container">
 
+        <nav class="sidebar">
+            <ul>
+                <li><button onclick="mostrarSecao('url')">URL</button></li>
+                <li><button onclick="mostrarSecao('card')">CARD</button></li>
+                <li><button onclick="mostrarSecao('text')">TEXT</button></li>
+                <li><button onclick="mostrarSecao('email')">EMAIL</button></li>
+                <li><button onclick="mostrarSecao('sms')">SMS</button></li>
+                <li><button onclick="mostrarSecao('wifi')">WIFI</button></li>
+            </ul>
+        </nav>
+
+
+        <main class="conteudo">
+            <div id="url" class="secao">Gerador de QR Code para URL</div>
+            <div id="card" class="secao">Gerador de QR Code para Cartão</div>
+            <div id="text" class="secao">Gerador de QR Code para Texto</div>
+            <div id="email" class="secao">Gerador de QR Code para E-mail</div>
+            <div id="sms" class="secao">Gerador de QR Code para SMS</div>
+            <div id="wifi" class="secao">
+                <div class="container_wifi">
+                    <div class="wifi_form">
+                        <input class="input_text-login" type="text" placeholder="Login da rede">
+                        <input class="input_text-senha" type="text" placeholder="Senha da rede">
+                        <div>
+                            <input type="color" id="favcolor" value="#ff0000">
+                            <input type="color" id="favcolor" value="#ff0000">
+                        </div>
+                        <button class="code_generator" onclick="gerarQr()">Download QrCode</button>
+                    </div>
+                    <div class="container_qrcode" id="qrcode"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script src="index.js"></script>
 </body>
 

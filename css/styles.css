@@ -1,0 +1,96 @@
+@import url(./reset.css);
+@import url(./sidebar.css);
+
+:root {
+    --co1: #E3E9F7;
+    --co2: #11111D;
+    --co3: #1D1B31;
+    --co4: #B6C2CE;
+    --co5: #FFFFFF;
+}
+body {
+    background-color: var(--co1);
+}
+ 
+ 
+.sidebar {
+    width: 200px;
+    background: var(--co2);
+    height: 100vh;
+    padding-top: 20px;
+    position: fixed;
+    left: 0;
+    top: 0;  
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 10px;
+}
+
+.sidebar button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: var(--co2);
+    color: white;
+    cursor: pointer;
+    text-align: left;
+}
+
+.sidebar button:hover {
+    background: #777;
+}
+
+ 
+.conteudo {
+    margin-left: 220px;
+    padding: 20px;
+    flex-grow: 1;
+}
+
+ 
+.secao {
+    display: none;
+    padding: 20px;
+    background: var(--co1);
+    
+}
+ 
+.secao.ativa {
+    display: block;
+}
+.container_wifi {
+    display: flex;
+    flex-direction: row;
+}
+.wifi_form {
+    display: flex;
+    flex-direction: column;
+}
+.div_qr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+     
+    
+}
+.input_text-login, .input_text-senha {
+    width: 250px;
+    border-radius: 15px;
+    border: 2px solid var(--co4);
+    color: var(--co4);
+    padding: 1em;
+    font-size: 14px;
+    margin: .5em;
+    background-color: transparent;
+    outline: none;
+}
+
+ 
