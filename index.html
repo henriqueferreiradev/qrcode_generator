@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QRCode Gen</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js" defer></script>
+
+</head>
+
+<body>
+    <div class="div_qr">
+        <div id="qrcode">
+         
+        </div>
+        <input class="input_text-login" type="text" placeholder="Login da rede">
+        <input class="input_text-senha" type="text" placeholder="Senha da rede">
+        <div>
+            <label for="favcolor">QrColor</label>
+            <input type="color" id="favcolor" value="#ff0000">
+            <label for="favcolor">Background</label>
+            <input type="color" id="favcolor" value="#ff0000">
+        </div>
+        <button class="code_generator" onclick="gerarQr()">Download QrCode</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"></script>
+
+    <script src="index.js"></script>
+</body>
+
+</html>

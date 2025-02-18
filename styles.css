@@ -1,0 +1,17 @@
+.div_qr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    border: 1px solid gray;
+}
+.input_text {
+    width: 250px;
+    border-radius: 15px;
+    border: 2px solid blue;
+    padding: 1em;
+    font-size: 14px;
+    margin: .5em;
+}
+ 
