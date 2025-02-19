@@ -7,12 +7,15 @@
     --co3: #1D1B31;
     --co4: #B6C2CE;
     --co5: #FFFFFF;
+    --co6: #000000;
 }
+
 body {
+    height: 100vh;
     background-color: var(--co1);
 }
- 
- 
+
+
 .sidebar {
     width: 200px;
     background: var(--co2);
@@ -20,7 +23,7 @@ body {
     padding-top: 20px;
     position: fixed;
     left: 0;
-    top: 0;  
+    top: 0;
 }
 
 .sidebar ul {
@@ -46,43 +49,57 @@ body {
     background: #777;
 }
 
- 
+
 .conteudo {
     margin-left: 220px;
     padding: 20px;
     flex-grow: 1;
 }
 
- 
+
 .secao {
     display: none;
     padding: 20px;
     background: var(--co1);
-    
+
 }
- 
+
 .secao.ativa {
     display: block;
 }
+
 .container_wifi {
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 20px;
+
 }
-.wifi_form {
-    display: flex;
-    flex-direction: column;
-}
-.div_qr {
+
+.wifi_form,
+.container_qrcode {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-     
-    
+    background-color: var(--co5);
+    width: 450px;
+    height: 450px;
+    border-radius: 15px;
+    padding: 20px;
 }
-.input_text-login, .input_text-senha {
-    width: 250px;
+
+.wifi_form,
+.container_qrcode {
+    flex: 1;
+    max-width: 450px;
+    height: 450px;
+}
+
+.input_text-login,
+.input_text-senha {
+    width: 500px;
     border-radius: 15px;
     border: 2px solid var(--co4);
     color: var(--co4);
@@ -94,3 +111,62 @@ body {
 }
 
  
+.radio-buttons-container {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  
+  .radio-button {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .radio-button__input {
+    position: absolute;
+    opacity: 100;
+    width: 0;
+    height: 0;
+  }
+  
+  .radio-button__label {
+    display: inline-block;
+    padding-left: 30px;
+    margin-bottom: 10px;
+    position: relative;
+    font-size: 16px;
+    color: co;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+  }
+  
+  .radio-button__custom {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #555;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+  }
+  
+  .radio-button__input:checked + .radio-button__label .radio-button__custom {
+    transform: translateY(-50%) scale(0.9);
+    border: 5px solid #4c8bf5;
+    color: #4c8bf5;
+  }
+  
+  .radio-button__input:checked + .radio-button__label {
+    color: #4c8bf5;
+  }
+  
+  .radio-button__label:hover .radio-button__custom {
+    transform: translateY(-50%) scale(1.2);
+    border-color: #4c8bf5;
+    box-shadow: 0 0 10px #4c8bf580;
+  }
+  
+  

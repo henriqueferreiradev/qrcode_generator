@@ -34,17 +34,48 @@
             <div id="wifi" class="secao">
                 <div class="container_wifi">
                     <div class="wifi_form">
+                        <label for="login">Nome da rede</label>
                         <input class="input_text-login" type="text" placeholder="Login da rede">
+                        <label for="login">Senha da rede</label>
                         <input class="input_text-senha" type="text" placeholder="Senha da rede">
-                        <div>
-                            <input type="color" id="favcolor" value="#ff0000">
-                            <input type="color" id="favcolor" value="#ff0000">
+                        <div class="radio-buttons_container">
+                            <p>Criptografia</p>
+
+                            <div class="radio-buttons-container">
+                                <div class="radio-button">
+                                    <input name="radio-group" id="radio2" class="radio-button__input" type="radio">
+                                    <label for="radio2" class="radio-button__label">
+                                        <span class="radio-button__custom"></span>
+
+                                        Nenhuma
+                                    </label>
+                                </div>
+                                <div class="radio-button">
+                                    <input name="radio-group" id="radio1" class="radio-button__input" type="radio">
+                                    <label for="radio1" class="radio-button__label">
+                                        <span class="radio-button__custom"></span>
+
+                                        Wpa/Wpa2
+                                    </label>
+                                </div>
+                                <div class="radio-button">
+                                    <input name="radio-group" id="radio3" class="radio-button__input" type="radio">
+                                    <label for="radio3" class="radio-button__label">
+                                        <span class="radio-button__custom"></span>
+
+                                        Wep
+                                    </label>
+                                </div>
+                            </div>
+                            <div>
+                                <input type="color" id="favcolor" value="#ff0000">
+                                <input type="color" id="favcolor" value="#ff0000">
+                            </div>
+                            <button class="code_generator" onclick="gerarQr()">Download QrCode</button>
                         </div>
-                        <button class="code_generator" onclick="gerarQr()">Download QrCode</button>
+                        <div class="container_qrcode" id="qrcode"></div>
                     </div>
-                    <div class="container_qrcode" id="qrcode"></div>
                 </div>
-            </div>
         </main>
     </div>
 
