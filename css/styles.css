@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&display=swap');
 @import url(./reset.css);
 @import url(./sidebar.css);
 
@@ -8,11 +9,13 @@
     --co4: #B6C2CE;
     --co5: #FFFFFF;
     --co6: #000000;
+    --fonte-principal: 'Noto Sans Display';
 }
 
 body {
     height: 100vh;
     background-color: var(--co1);
+    font-family: var(--fonte-principal);
 }
 
 
@@ -68,35 +71,106 @@ body {
     display: block;
 }
 
+
+
+.titulo_nome {
+    font-size: 18px;
+}
+
 .container_wifi {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    /* Centraliza os itens horizontalmente */
     align-items: center;
-    height: 100vh;
-    gap: 20px;
+    /* Alinha verticalmente */
+    gap: 1em;
+    /* Espaço entre os itens */
+    width: 100%;
+}
+
+.wifi_form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: var(--co5);
+    border-radius: 15px;
+    padding: 4em;
+    width: 50%;/
+}
+
+.container_qrcode {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 4em;
+    background-color: var(--co5);
+    border-radius: 15px;
+    padding: 4em;
+    width: 50%;
 
 }
 
-.wifi_form,
-.container_qrcode {
+.div_card_qrcode {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 1em;
     background-color: var(--co5);
-    width: 450px;
-    height: 450px;
     border-radius: 15px;
-    padding: 20px;
+    
+    border: 1px solid var(--co2);
 }
 
-.wifi_form,
-.container_qrcode {
-    flex: 1;
-    max-width: 450px;
-    height: 450px;
+
+.card_qrcode {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+    background-color: var(--co5);
+    border-radius: 15px;
+    padding: 1em;
+
+
 }
 
+.resultado_titulo {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    width: 300px;
+    margin: 1em;
+}
+
+.resultado_texto {
+    width: 250px;
+    border: 2px solid var(--co2);
+    border-radius: 5px;
+    padding: 1em;
+    margin: 0.5em 0;
+}
+
+.resultado_img {
+    display: flex;
+    width: 100px;
+    justify-self: center;
+    margin-bottom: 1em;
+}
+.resultado_dica {
+    color: var(--co5);
+    background-color: var(--co6);
+    font-weight: 600;
+    text-align: center;
+    padding: 0.5em;
+    width: 97.5%;
+    border-radius:0 0 10px 10px ;
+    
+}
 .input_text-login,
 .input_text-senha {
     width: 500px;
@@ -110,63 +184,74 @@ body {
     outline: none;
 }
 
- 
+.code_generator {
+    background-color: var(--co2);
+    color: var(--co5);
+    border-radius: 15px;
+    border: none;
+    padding: 1em 4em;
+    margin-top: 2em;
+}
+
 .radio-buttons-container {
     display: flex;
-    align-items: center;
-    gap: 24px;
-  }
-  
-  .radio-button {
+    flex-direction: row;
+
+    align-items: start;
+    gap: 2em;
+    margin-top: 2em;
+
+}
+
+.radio-button {
     display: inline-block;
     position: relative;
     cursor: pointer;
-  }
-  
-  .radio-button__input {
+}
+
+.radio-button__input {
     position: absolute;
-    opacity: 100;
+    opacity: 0;
     width: 0;
     height: 0;
-  }
-  
-  .radio-button__label {
+}
+
+.radio-button__label {
     display: inline-block;
-    padding-left: 30px;
+    padding-left: 25px;
     margin-bottom: 10px;
     position: relative;
     font-size: 16px;
-    color: co;
+    color: co2;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
-  }
-  
-  .radio-button__custom {
+}
+
+.radio-button__custom {
     position: absolute;
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
     border-radius: 50%;
-    border: 2px solid #555;
-    transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
-  }
-  
-  .radio-button__input:checked + .radio-button__label .radio-button__custom {
+    border: 2px solid var(--co2);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.radio-button__input:checked+.radio-button__label .radio-button__custom {
     transform: translateY(-50%) scale(0.9);
-    border: 5px solid #4c8bf5;
-    color: #4c8bf5;
-  }
-  
-  .radio-button__input:checked + .radio-button__label {
-    color: #4c8bf5;
-  }
-  
-  .radio-button__label:hover .radio-button__custom {
+    border: 5px solid var(--co2);
+    background-color: var(--co4);
+    color: var(--co2);
+}
+
+.radio-button__input:checked+.radio-button__label {
+    color: var(--co2);
+}
+
+.radio-button__label:hover .radio-button__custom {
     transform: translateY(-50%) scale(1.2);
-    border-color: #4c8bf5;
+    border-color: var(--co2);
     box-shadow: 0 0 10px #4c8bf580;
-  }
-  
-  
+}
