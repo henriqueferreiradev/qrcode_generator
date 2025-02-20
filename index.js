@@ -1,5 +1,4 @@
 function mostrarSecao(secaoId) {
-
     document.querySelectorAll('.secao').forEach(secao => {
         secao.classList.remove('ativa');
     });
@@ -11,33 +10,45 @@ document.addEventListener("DOMContentLoaded", function () {
     mostrarSecao('url');
 });
 
-function gerarQr() {
+async function gerarQr() {
     const login = document.querySelector('.input_text-login').value;
     const senha = document.querySelector('.input_text-senha').value;
+    const criptografia = await pegarCriptografia(); // Agora esperamos a resposta correta
 
-    if (!login || !senha) {
-        alert("Deu ruim");
+    if (!login) {
+        alert("Preencha o nome da rede e a senha!");
         return;
     }
 
-    const wifi = `WIFI:S:${login};T:WPA;P:${senha};;`;
-    console.log(wifi);
+    if (!criptografia === null) {
+        return;
+    }
 
-    // Pega a div onde o QR Code deve ser inserido
+
+    let wifi;
+
+    if (criptografia === "") {
+        wifi = `WIFI:S:${login};;`;
+    } else {
+        wifi = `WIFI:S:${login};T:${criptografia};P:${senha};;`;
+
+    }
+    console.log(wifi)
+
     const qrDiv = document.getElementById("qrcode");
-
-    // Remove conteúdo anterior antes de gerar um novo
     qrDiv.innerHTML = "";
+    qrDiv.style.display = 'flex'
 
-    // Gera o QR Code e insere na div
-    QRCode.toDataURL(wifi, { width: 300, height: 300, margin: 2,   }, function (error, url) {
+    QRCode.toDataURL(wifi, { width: 260, height: 260, margin: 2 }, function (error, url) {
         if (error) {
             console.error(error);
         } else {
             console.log("QR Code gerado com sucesso!");
 
             qrDiv.innerHTML = `
-                <div class="div_card_qrcode">
+            <h3>Aqui está seu QRCODE</h3>
+                <div class="div_card_qrcode" id='div_card_qrcode'>
+                
                     <div class="card_qrcode">
                         <div class="qr_img">
                             <img src="${url}" alt="QR Code">
@@ -51,16 +62,16 @@ function gerarQr() {
                         </div>
                     </div>
                     <p class="resultado_dica">Escaneie o QRCODE ou pesquise pelo SSID e senha.</p>
-                </div>`;
+                </div>
+                <button class="code_generator" onclick="baixarCardWifi()">Download QrCode</button>`;
         }
     });
 }
 
-
 function iniciarScroll(elemento) {
     const targetPosition = elemento.getBoundingClientRect().top + window.scrollY;
     const scrollSpeed = 1;
-    const maxScroll = document.documentElement.scrollHeight - window.innerHeight; // Posição máxima de scroll
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
 
     function scrollStep() {
         const currentPosition = window.scrollY;
@@ -74,4 +85,31 @@ function iniciarScroll(elemento) {
     }
 
     scrollStep();
+}
+
+async function pegarCriptografia() {
+    const criptografiaSelecionada = document.querySelector('input[name="criptografia"]:checked');
+
+    if (criptografiaSelecionada) {
+        let tipo = criptografiaSelecionada.value.toUpperCase();
+
+        if (tipo === "NENHUMA")
+            return ""
+        return tipo;
+    } else {
+        alert('Selecione uma opção de criptografia');
+        return null;
+    }
+}
+
+function baixarCardWifi() {
+    const cardWifi = document.getElementById("div_card_qrcode");
+
+    html2canvas(cardWifi).then(canvas => {
+        const imgURL = canvas.toDataURL("cardWifi/png")
+        const link = document.createElement('a')
+        link.href = imgURL
+        link.download = 'cardWifi.png'
+        link.click()
+    })
 }

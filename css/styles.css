@@ -9,6 +9,10 @@
     --co4: #B6C2CE;
     --co5: #FFFFFF;
     --co6: #000000;
+    --co7: #12C3D2;
+    --co8: #28F19C;
+    --co9: #01A0FA;
+
     --fonte-principal: 'Noto Sans Display';
 }
 
@@ -18,8 +22,12 @@ body {
     font-family: var(--fonte-principal);
 }
 
-
+button, a {
+    cursor: pointer;
+}
 .sidebar {
+    display: flex;
+    flex-direction: column;
     width: 200px;
     background: var(--co2);
     height: 100vh;
@@ -40,19 +48,29 @@ body {
 
 .sidebar button {
     width: 100%;
-    padding: 10px;
+    padding: 1em;
     border: none;
     background: var(--co2);
-    color: white;
+    color: var(--co8);
     cursor: pointer;
-    text-align: left;
+    text-align: center;
+    border-radius: 5px;
+    font-weight: 600;
+
+
+
 }
 
 .sidebar button:hover {
-    background: #777;
+    background: var(--co8);
+    color: var(--co2);
 }
 
-
+.qrcode_icon {
+    width: 120px;
+    align-self: center;
+    
+}
 .conteudo {
     margin-left: 220px;
     padding: 20px;
@@ -81,11 +99,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* Centraliza os itens horizontalmente */
     align-items: center;
-    /* Alinha verticalmente */
     gap: 1em;
-    /* Espaço entre os itens */
     width: 100%;
 }
 
@@ -101,16 +116,22 @@ body {
 }
 
 .container_qrcode {
-    display: flex;
-    flex-direction: row;
+    display: none;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 4em;
+    gap: 1em;
     background-color: var(--co5);
     border-radius: 15px;
     padding: 4em;
+
     width: 50%;
 
+}
+
+.container_qrcode h3 {
+    font-size: 20px;
+    font-weight: 500;
 }
 
 .div_card_qrcode {
@@ -121,7 +142,6 @@ body {
     gap: 1em;
     background-color: var(--co5);
     border-radius: 15px;
-    
     border: 1px solid var(--co2);
 }
 
@@ -135,6 +155,7 @@ body {
     background-color: var(--co5);
     border-radius: 15px;
     padding: 1em;
+  
 
 
 }
@@ -153,6 +174,8 @@ body {
     border-radius: 5px;
     padding: 1em;
     margin: 0.5em 0;
+    text-align: center;
+    font-weight: 500;
 }
 
 .resultado_img {
@@ -161,6 +184,7 @@ body {
     justify-self: center;
     margin-bottom: 1em;
 }
+
 .resultado_dica {
     color: var(--co5);
     background-color: var(--co6);
@@ -168,9 +192,10 @@ body {
     text-align: center;
     padding: 0.5em;
     width: 97.5%;
-    border-radius:0 0 10px 10px ;
-    
+    border-radius: 0 0 10px 10px;
+
 }
+
 .input_text-login,
 .input_text-senha {
     width: 500px;
