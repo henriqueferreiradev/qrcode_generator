@@ -9,8 +9,47 @@ function mostrarSecao(secaoId) {
 document.addEventListener("DOMContentLoaded", function () {
     mostrarSecao('url');
 });
+async function gerarQrEmail() {
+    
+}
+async function gerarQrSMS() {
+    const numero = document.getElementById('sms_mensagem')
+    const mensagem = document.getElementById('textarea')
 
-async function gerarQr() {
+    if (!numero || !mensagem) {
+        alert('Preencha todos os campos.');
+        return;
+    }
+    let sms;
+    sms = `sms:+${numero}?body=${mensagem}`
+
+    console.log(wifi)
+
+    const qrDiv = document.getElementById("qrcode_sms");
+    qrDiv.innerHTML = "";
+    qrDiv.style.display = 'flex'
+
+    QRCode.toDataURL(sms, { width: 260, height: 260, margin: 2 }, function (error, url) {
+        if (error) {
+            console.error(error);
+        } else {
+            console.log("QR Code gerado com sucesso!");
+
+            qrDiv.innerHTML = `
+            <h3>Aqui está seu QRCODE</h3>
+                <div class="div_card_qrcode" id='div_card_qrcode'>
+                    <div class="card_qrcode">
+                        <div class="qr_img">
+                            <img src="${url}" alt="QR Code">
+                        </div>
+                    </div>
+                    <p class="resultado_dica">Scan Now</p>
+                </div>
+                <button class="code_generator" onclick="baixarCardWifi()">Download QrCode</button>`;
+        }
+    });
+}
+async function gerarQrWifi() {
     const login = document.querySelector('.input_text-login').value;
     const senha = document.querySelector('.input_text-senha').value;
     const criptografia = await pegarCriptografia(); // Agora esperamos a resposta correta

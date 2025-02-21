@@ -24,6 +24,12 @@
                 <li><button onclick="mostrarSecao('sms')">SMS</button></li>
                 <li><button onclick="mostrarSecao('wifi')">WIFI</button></li>
             </ul>
+            <div class="switch-container">
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider"></span>
+                </label>
+            </div>
         </nav>
     </div>
 
@@ -35,24 +41,25 @@
         <div id="sms" class="secao">
             <div class="container_sms">
                 <div class="sms_form">
-                    <h3>Wifi QR Code</h3>
+                    <h3 class="titulo_div">SMS QR Code</h3>
                     <label class="titulo_nome" for="login">Número</label>
-                    <input class="input_text-login" type="text" placeholder="SMS">
+                    <input class="input_text" id="sms_mensagem" type="text" placeholder="SMS">
                     <label class="titulo_nome" for="login">Mensagem</label>
-                    <textarea class="input_text-senha textarea" name="" id=""></textarea>
-                    <button class="code_generator" onclick="gerarQr()">Gerar QRCode</button>
+                    <textarea class="input_text textarea" name="textarea" id="textarea"></textarea>
+                    <button class="code_generator" onclick="gerarQrSMS()">Gerar QRCode</button>
                 </div>
+                <div class="container_qrcode" id="qrcode_sms"></div>
             </div>
         </div>
         <div id="wifi" class="secao">
             <div class="container_wifi">
                 <div class="wifi_form">
-                    <h3>Wifi QR Code</h3>
+                    <h3 class="titulo_div">Wifi QR Code</h3>
                     <label class="titulo_nome" for="login">Nome da rede</label>
-                    <input class="input_text-login" type="text" placeholder="Login da rede">
+                    <input class="input_text" type="text" placeholder="Login da rede">
                     <label class="titulo_nome" for="login">Senha da rede</label>
-                    <input class="input_text-senha" type="text" placeholder="Senha da rede">
-                
+                    <input class="input_text" type="text" placeholder="Senha da rede">
+
                     <div class="radio-buttons_container">
 
                         <div class="radio-buttons-container">
