@@ -32,10 +32,22 @@
         <div id="card" class="secao">Gerador de QR Code para Cartão</div>
         <div id="text" class="secao">Gerador de QR Code para Texto</div>
         <div id="email" class="secao">Gerador de QR Code para E-mail</div>
-        <div id="sms" class="secao">Gerador de QR Code para SMS</div>
+        <div id="sms" class="secao">
+            <div class="container_sms">
+                <div class="sms_form">
+                    <h3>Wifi QR Code</h3>
+                    <label class="titulo_nome" for="login">Número</label>
+                    <input class="input_text-login" type="text" placeholder="SMS">
+                    <label class="titulo_nome" for="login">Mensagem</label>
+                    <input class="input_text-senha" type="" placeholder="Digite sua mensagem">
+                    <button class="code_generator" onclick="gerarQr()">Gerar QRCode</button>
+                </div>
+            </div>
+        </div>
         <div id="wifi" class="secao">
             <div class="container_wifi">
                 <div class="wifi_form">
+                    <h3>Wifi QR Code</h3>
                     <label class="titulo_nome" for="login">Nome da rede</label>
                     <input class="input_text-login" type="text" placeholder="Login da rede">
                     <label class="titulo_nome" for="login">Senha da rede</label>
@@ -44,21 +56,24 @@
 
                         <div class="radio-buttons-container">
                             <div class="radio-button">
-                                <input name="criptografia" id="radio2" value="nenhuma" class="radio-button__input" type="radio">
+                                <input name="criptografia" id="radio2" value="nenhuma" class="radio-button__input"
+                                    type="radio">
                                 <label for="radio2" class="radio-button__label">
                                     <span class="radio-button__custom"></span>
                                     Nenhuma
                                 </label>
                             </div>
                             <div class="radio-button">
-                                <input name="criptografia" id="radio1" value="wpa" class="radio-button__input" type="radio">
+                                <input name="criptografia" id="radio1" value="wpa" class="radio-button__input"
+                                    type="radio">
                                 <label for="radio1" class="radio-button__label">
                                     <span class="radio-button__custom"></span>
                                     Wpa/Wpa2
                                 </label>
                             </div>
                             <div class="radio-button">
-                                <input name="criptografia" id="radio3" value="wep" class="radio-button__input" type="radio">
+                                <input name="criptografia" id="radio3" value="wep" class="radio-button__input"
+                                    type="radio">
                                 <label for="radio3" class="radio-button__label">
                                     <span class="radio-button__custom"></span>
                                     Wep
@@ -73,9 +88,9 @@
                 </div>
                 <div class="container_qrcode" id="qrcode">
 
-                    
+
                 </div>
-                
+
             </div>
 
         </div>
