@@ -18,8 +18,9 @@
 
 body {
   height: 100vh;
-  background-color: var(--co1);
+  background-color: var(--co3);
   font-family: var(--fonte-principal);
+  color: white;
 }
 
 input,
@@ -28,8 +29,11 @@ textarea {
   font-size: 16px;
 }
 
+.light {}
+
 button,
 a {
+
   cursor: pointer;
 }
 
@@ -91,7 +95,7 @@ a {
 .secao {
   display: none;
   padding: 20px;
-  background: var(--co1);
+  background: var(--co3);
 
 }
 
@@ -123,7 +127,7 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  background-color: var(--co5);
+  background-color: var(--co2);
   border-radius: 15px;
   padding: 4em;
   width: 50%;
@@ -135,7 +139,7 @@ a {
   align-items: center;
   justify-content: center;
   gap: 1em;
-  background-color: var(--co5);
+  background-color: var(--co2);
   border-radius: 15px;
   padding: 4em;
 
@@ -213,18 +217,19 @@ a {
 .input_text {
   width: 500px;
   border-radius: 15px;
-  border: 2px solid var(--co4);
+  border: 2px solid var(--co8);
   color: var(--co4);
   padding: 1em;
   font-size: 14px;
   margin: .5em;
   background-color: transparent;
   outline: none;
+  font-weight: 600;
 }
 
 .code_generator {
-  background-color: var(--co2);
-  color: var(--co5);
+  background-color: var(--co8);
+  color: var(--co6);
   border-radius: 15px;
   border: none;
   padding: 1em 4em;
@@ -234,7 +239,6 @@ a {
 .radio-buttons-container {
   display: flex;
   flex-direction: row;
-
   align-items: start;
   gap: 2em;
   margin-top: 2em;
@@ -260,7 +264,7 @@ a {
   margin-bottom: 10px;
   position: relative;
   font-size: 16px;
-  color: co2;
+  color: var(--co5);
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
 }
@@ -285,7 +289,7 @@ a {
 }
 
 .radio-button__input:checked+.radio-button__label {
-  color: var(--co2);
+  color: var(--co8);
 }
 
 .radio-button__label:hover .radio-button__custom {
@@ -297,16 +301,22 @@ a {
 .textarea {
   height: 100px;
   resize: vertical;
+  font-weight: 600;
 
 }
 
+.textarea::placeholder {
+  font-weight: 600;
+  font-size:16px;
+  font-family: var(--fonte-principal);
+}
 
 .switch {
   position: absolute;
   display: flex;
   width: 50px;
-  height: 20px;
-  
+  height: 21px;
+
 }
 
 .switch input {
@@ -320,7 +330,7 @@ a {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #3C3C3C;
+  background-color: var(--co8);
   -webkit-transition: .4s;
   transition: .4s;
   border-radius: 34px;
@@ -331,39 +341,38 @@ a {
   content: "";
   height: 19px;
   width: 19px;
-  left: 2px;
+  left: 1px;
   bottom: 1px;
-  background-color: white;
+  background-color: var(--co2);
   -webkit-transition: .4s;
   transition: .4s;
   border-radius: 50%;
 }
 
 input:checked+.slider {
-  background-color: #0E6EB8;
+  background-color: var(--co5);
 }
 
 input:focus+.slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px var(--co4);
 }
 
 input:checked+.slider:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
-  transform: translateX(18px);
+  transform: translateX(29px);
 }
 
-/*------ ADDED CSS ---------*/
 .slider:after {
   content: '';
-  color: white;
+
   display: block;
   position: absolute;
   transform: translate(-50%, -50%);
   top: 50%;
   left: 50%;
   font-size: 10px;
- 
+
 }
 
 input:checked+.slider:after {
@@ -374,7 +383,29 @@ input:checked+.slider:after {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: auto;  
+  margin-top: auto;
   margin-bottom: 50px;
-  padding: 20px 0; 
+  padding: 20px 0;
+}
+
+.sidebar button.light {
+  background-color: var(--co4);
+  color: var(--co2);
+}
+
+.sidebar button.light:hover {
+  background-color: var(--co8);
+}
+
+.container.light {
+  background-color: var(--co1);
+}
+
+body.light {
+  background-color: var(--co1);
+  color: var(--co2);
+}
+
+.sidebar.light {
+  background-color: var(--co4);
 }

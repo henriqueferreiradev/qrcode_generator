@@ -1,3 +1,5 @@
+
+
 function mostrarSecao(secaoId) {
     document.querySelectorAll('.secao').forEach(secao => {
         secao.classList.remove('ativa');
@@ -10,13 +12,13 @@ document.addEventListener("DOMContentLoaded", function () {
     mostrarSecao('url');
 });
 async function gerarQrEmail() {
-    
+
 }
 async function gerarQrSMS() {
     const numero = document.getElementById('sms_mensagem')
     const mensagem = document.getElementById('textarea')
 
-    if (!numero || !mensagem) {
+    if (!numero) {
         alert('Preencha todos os campos.');
         return;
     }
@@ -152,3 +154,20 @@ function baixarCardWifi() {
         link.click()
     })
 }
+
+let trocaBtn = document.getElementById('switch')
+let body = document.querySelector('body')
+let sidebar = document.querySelector('.sidebar')
+let containers = document.querySelectorAll('.container')
+let sideButton = document.querySelectorAll('.sidebutton')
+
+trocaBtn.addEventListener('click', () => {
+    trocaBtn.classList.toggle("light")
+    body.classList.toggle("light")
+    sidebar.classList.toggle('light')
+    containers.forEach(container => container.classList.toggle('light'))
+    sideButton.forEach(button => button.classList.toggle('light'))
+    
+    
+ 
+})

@@ -17,16 +17,16 @@
         <nav class="sidebar">
             <img class='qrcode_icon' src="./qr code symb.png" alt="">
             <ul>
-                <li><button onclick="mostrarSecao('url')">URL</button></li>
-                <li><button onclick="mostrarSecao('card')">CARD</button></li>
-                <li><button onclick="mostrarSecao('text')">TEXT</button></li>
-                <li><button onclick="mostrarSecao('email')">EMAIL</button></li>
-                <li><button onclick="mostrarSecao('sms')">SMS</button></li>
-                <li><button onclick="mostrarSecao('wifi')">WIFI</button></li>
+                <li><button class="sidebutton" onclick="mostrarSecao('url')">URL</button></li>
+                <li><button class="sidebutton" onclick="mostrarSecao('card')">CARD</button></li>
+                <li><button class="sidebutton" onclick="mostrarSecao('text')">TEXT</button></li>
+                <li><button class="sidebutton" onclick="mostrarSecao('email')">EMAIL</button></li>
+                <li><button class="sidebutton" onclick="mostrarSecao('sms')">SMS</button></li>
+                <li><button class="sidebutton" onclick="mostrarSecao('wifi')">WIFI</button></li>
             </ul>
             <div class="switch-container">
                 <label class="switch">
-                    <input type="checkbox">
+                    <input id="switch" type="checkbox">
                     <span class="slider"></span>
                 </label>
             </div>
@@ -34,12 +34,26 @@
     </div>
 
     <main class="conteudo">
-        <div id="url" class="secao">Gerador de QR Code para URL</div>
-        <div id="card" class="secao">Gerador de QR Code para Cartão</div>
-        <div id="text" class="secao">Gerador de QR Code para Texto</div>
-        <div id="email" class="secao">Gerador de QR Code para E-mail</div>
-        <div id="sms" class="secao">
-            <div class="container_sms">
+        <div id="url" class="secao container">Gerador de QR Code para URL</div>
+        <div id="card" class="secao container">Gerador de QR Code para Cartão</div>
+        <div id="text" class="secao container">Gerador de QR Code para Texto</div>
+        <div id="email" class="secao container">
+            <div class="container_sms container">
+                <div class="sms_form">
+                    <h3 class="titulo_div">SMS QR Code</h3>
+                    <label class="titulo_nome" for="login">E-mail</label>
+                    <input class="input_text" id="sms_mensagem" type="text" placeholder="Seu e-mail">
+                    <label class="titulo_nome" for="login">Assunto</label>
+                    <input class="input_text" id="sms_mensagem" type="text" placeholder="Insira o assunto do e-mail">
+                    <label class="titulo_nome" for="login">Mensagem</label>
+                    <textarea class="input_text textarea" name="textarea" id="textarea" placeholder="Digite sua mensagem"></textarea>
+                    <button class="code_generator" onclick="gerarQrSMS()">Gerar QRCode</button>
+                </div>
+                <div class="container_qrcode" id="qrcode_sms"></div>
+            </div>
+        </div>
+        <div id="sms" class="secao container">
+            <div class="container_sms container">
                 <div class="sms_form">
                     <h3 class="titulo_div">SMS QR Code</h3>
                     <label class="titulo_nome" for="login">Número</label>
@@ -51,14 +65,14 @@
                 <div class="container_qrcode" id="qrcode_sms"></div>
             </div>
         </div>
-        <div id="wifi" class="secao">
-            <div class="container_wifi">
+        <div id="wifi" class="secao container">
+            <div class="container_wifi container">
                 <div class="wifi_form">
                     <h3 class="titulo_div">Wifi QR Code</h3>
                     <label class="titulo_nome" for="login">Nome da rede</label>
-                    <input class="input_text" type="text" placeholder="Login da rede">
+                    <input class="input_text input_text-login" type="text" placeholder="Login da rede">
                     <label class="titulo_nome" for="login">Senha da rede</label>
-                    <input class="input_text" type="text" placeholder="Senha da rede">
+                    <input class="input_text input_text-senha" type="text" placeholder="Senha da rede">
 
                     <div class="radio-buttons_container">
 
@@ -91,7 +105,7 @@
 
 
                     </div>
-                    <button class="code_generator" onclick="gerarQr()">Gerar QRCode</button>
+                    <button class="code_generator" onclick="gerarQrWifi()">Gerar QRCode</button>
 
                 </div>
                 <div class="container_qrcode" id="qrcode">
