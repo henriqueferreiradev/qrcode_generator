@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QRCode Gen</title>
-    <link rel="icon" href="qrcode_icon.png" type="image/x-icon">
+    <link rel="icon" href="./assets/icons/qrcode_icon.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js" defer></script>
 
@@ -15,7 +15,7 @@
     <div class="container">
 
         <nav class="sidebar">
-            <img class='qrcode_icon' src="./qr code symb.png" alt="">
+            <img class='qrcode_icon' src="./assets/icons/qr code symb.png" alt="">
             <ul>
                 <li><button class="sidebutton" onclick="mostrarSecao('url')">URL</button></li>
                 <li><button class="sidebutton" onclick="mostrarSecao('card')">CARD</button></li>
@@ -25,10 +25,12 @@
                 <li><button class="sidebutton" onclick="mostrarSecao('wifi')">WIFI</button></li>
             </ul>
             <div class="switch-container">
+                <img class="theme_img theme_img-dark" src="./assets/icons/dark.png" alt="dark">
                 <label class="switch">
                     <input id="switch" type="checkbox">
                     <span class="slider"></span>
                 </label>
+                <img class="theme_img theme_img-light" src="./assets/icons/light.png" alt="dark">
             </div>
         </nav>
     </div>

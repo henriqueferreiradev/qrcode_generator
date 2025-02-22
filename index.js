@@ -95,7 +95,7 @@ async function gerarQrWifi() {
                             <img src="${url}" alt="QR Code">
                         </div>
                         <div class="qrcode_resultado">
-                            <img class='resultado_img' src="wifi-2-logo-png-transparent.png" alt="Wi-Fi">
+                            <img class='resultado_img' src="./assets/icons/wifi_logo.png" alt="Wi-Fi">
                             <p>Nome da Rede (SSID)</p>
                             <h2 class="resultado_texto">${login}</h2>
                             <p>Senha da Rede</p>
@@ -160,6 +160,8 @@ let body = document.querySelector('body')
 let sidebar = document.querySelector('.sidebar')
 let containers = document.querySelectorAll('.container')
 let sideButton = document.querySelectorAll('.sidebutton')
+let toggleImgDark = document.querySelector('.theme_img-dark')
+let toggleImgLight = document.querySelector('.theme_img-light')
 
 trocaBtn.addEventListener('click', () => {
     trocaBtn.classList.toggle("light")
@@ -167,7 +169,12 @@ trocaBtn.addEventListener('click', () => {
     sidebar.classList.toggle('light')
     containers.forEach(container => container.classList.toggle('light'))
     sideButton.forEach(button => button.classList.toggle('light'))
-    
-    
- 
+    if (body.classList.contains('light')) {
+        toggleImgDark.src = `./assets/icons/dark_toggle.png`;
+        toggleImgLight.src = `./assets/icons/light_toggle.png`;
+    } else {
+        toggleImgDark.src = `./assets/icons/dark.png`;
+        toggleImgLight.src = `./assets/icons/light.png`;
+    }
+
 })
