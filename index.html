@@ -17,12 +17,18 @@
         <nav class="sidebar">
             <img class='qrcode_icon' src="./assets/icons/qr code symb.png" alt="">
             <ul>
-                <li><button class="sidebutton" onclick="mostrarSecao('url')">URL</button></li>
-                <li><button class="sidebutton" onclick="mostrarSecao('card')">CARD</button></li>
-                <li><button class="sidebutton" onclick="mostrarSecao('text')">TEXT</button></li>
-                <li><button class="sidebutton" onclick="mostrarSecao('email')">EMAIL</button></li>
-                <li><button class="sidebutton" onclick="mostrarSecao('sms')">SMS</button></li>
-                <li><button class="sidebutton" onclick="mostrarSecao('wifi')">WIFI</button></li>
+                <li><button class="sidebutton" onclick="mostrarSecao('url')"><img class="sidebutton-img"
+                            src="./assets/icons/light/Globe_light.png" alt="">URL</button></li>
+                <li><button class="sidebutton" onclick="mostrarSecao('card')"><img class="sidebutton-img"
+                            src="./assets/icons/light/User_Card_ID_light.png" alt="">CARD</button></li>
+                <li><button class="sidebutton" onclick="mostrarSecao('text')"><img class="sidebutton-img"
+                            src="./assets/icons/light/Text_light.png" alt="">TEXT</button></li>
+                <li><button class="sidebutton" onclick="mostrarSecao('email')"><img class="sidebutton-img"
+                            src="./assets/icons/light/Mail_light.png" alt="">EMAIL</button></li>
+                <li><button class="sidebutton" onclick="mostrarSecao('sms')"><img class="sidebutton-img"
+                            src="./assets/icons/light/Chat_light.png" alt="">SMS</button></li>
+                <li><button class="sidebutton" onclick="mostrarSecao('wifi')"><img class="sidebutton-img"
+                            src="./assets/icons/light/Wifi_High_light.png" alt="">WIFI</button></li>
             </ul>
             <div class="switch-container">
                 <img class="theme_img theme_img-dark" src="./assets/icons/dark.png" alt="dark">
@@ -37,18 +43,70 @@
 
     <main class="conteudo">
         <div id="url" class="secao container">Gerador de QR Code para URL</div>
-        <div id="card" class="secao container">Gerador de QR Code para Cartão</div>
-        <div id="text" class="secao container">Gerador de QR Code para Texto</div>
+        <div id="card" class="secao container">
+            <div class="container_sms container">
+                <div class="email_form formulario">
+                    <h3 class="titulo_div">Texto QR Code</h3>
+                    <label class="titulo_nome" for="login">Seu nome</label>
+                    <div class="card_nome">
+                        <input class="input_text" id="sms_mensagem" type="text" placeholder="Primeiro nome">
+                        <input class="input_text" id="sms_mensagem" type="text" placeholder="Sobrenome">
+                    </div>
+
+                    <label class="titulo_nome" for="login">Números</label>
+                    <div class="card_nome">
+                        <input class="input_text" id="sms_mensagem" type="text" placeholder="Celular">
+                        <input class="input_text" id="sms_mensagem" type="text" placeholder="Telefone">
+                        <input class="input_text" id="sms_mensagem" type="text" placeholder="Fax">
+                    </div>
+                    <label class="titulo_nome" for="login">E-mail</label>
+                    <input class="input_text" id="sms_mensagem" type="text" placeholder="seuemail@teste.com">
+
+                    <label class="titulo_nome" for="login">Empresa</label>
+                    <div class="card_nome">
+                        <input class="input_text" id="sms_mensagem" type="text" placeholder="Empresa">
+                        <input class="input_text" id="sms_mensagem" type="text" placeholder="Cargo">
+                    </div>
+                    <label class="titulo_nome" for="login">Endereço</label>
+                    <input class="input_text" id="sms_mensagem" type="text" placeholder="Sua rua">
+
+                    <div class="card_nome">
+                        <input class="input_text" id="sms_mensagem" type="text" placeholder="Cidade">
+                        <input class="input_text" id="sms_mensagem" type="text" placeholder="CEP">
+                    </div>
+                    <input class="input_text" id="sms_mensagem" type="text" placeholder="Estado">
+                    <input class="input_text" id="sms_mensagem" type="text" placeholder="País">
+                    <input class="input_text" id="sms_mensagem" type="text" placeholder="www.website.com">
+
+                    <button class="code_generator" onclick="gerarQrSMS()">Gerar QRCode</button>
+                </div>
+                <div class="container_qrcode" id="qrcode_sms"></div>
+            </div>
+        </div>
+        <div id="text" class="secao container">
+            <div class="container_sms container">
+                <div class="text_form">
+                    <h3 class="titulo_div">Crie um QR Code de texto</h3>
+
+                    <label class="titulo_nome" for="login">Mensagem</label>
+                    <textarea class="input_text textarea" name="textarea" id="textarea"
+                        placeholder="Digite sua mensagem"></textarea>
+                    <button class="code_generator" onclick="gerarQrSMS()">Gerar QRCode</button>
+                </div>
+                <div class="container_qrcode" id="qrcode_sms"></div>
+            </div>
+        </div>
         <div id="email" class="secao container">
             <div class="container_sms container">
-                <div class="sms_form">
-                    <h3 class="titulo_div">SMS QR Code</h3>
+                <div class="email_form formulario">
+                    <h3 class="titulo_div">Texto QR Code</h3>
                     <label class="titulo_nome" for="login">E-mail</label>
                     <input class="input_text" id="sms_mensagem" type="text" placeholder="Seu e-mail">
                     <label class="titulo_nome" for="login">Assunto</label>
                     <input class="input_text" id="sms_mensagem" type="text" placeholder="Insira o assunto do e-mail">
                     <label class="titulo_nome" for="login">Mensagem</label>
-                    <textarea class="input_text textarea" name="textarea" id="textarea" placeholder="Digite sua mensagem"></textarea>
+                    <textarea class="input_text textarea" name="textarea" id="textarea"
+                        placeholder="Digite sua mensagem"></textarea>
                     <button class="code_generator" onclick="gerarQrSMS()">Gerar QRCode</button>
                 </div>
                 <div class="container_qrcode" id="qrcode_sms"></div>
@@ -56,7 +114,7 @@
         </div>
         <div id="sms" class="secao container">
             <div class="container_sms container">
-                <div class="sms_form">
+                <div class="sms_form formulario">
                     <h3 class="titulo_div">SMS QR Code</h3>
                     <label class="titulo_nome" for="login">Número</label>
                     <input class="input_text" id="sms_mensagem" type="text" placeholder="SMS">
@@ -69,7 +127,7 @@
         </div>
         <div id="wifi" class="secao container">
             <div class="container_wifi container">
-                <div class="wifi_form">
+                <div class="wifi_form formulario">
                     <h3 class="titulo_div">Wifi QR Code</h3>
                     <label class="titulo_nome" for="login">Nome da rede</label>
                     <input class="input_text input_text-login" type="text" placeholder="Login da rede">
@@ -110,7 +168,7 @@
                     <button class="code_generator" onclick="gerarQrWifi()">Gerar QRCode</button>
 
                 </div>
-                <div class="container_qrcode" id="qrcode">
+                <div class="container_qrcode light" id="qrcode">
 
 
                 </div>

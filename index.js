@@ -160,8 +160,10 @@ let body = document.querySelector('body')
 let sidebar = document.querySelector('.sidebar')
 let containers = document.querySelectorAll('.container')
 let sideButton = document.querySelectorAll('.sidebutton')
+let sideButtonImg = document.querySelectorAll('.sidebutton-img')
 let toggleImgDark = document.querySelector('.theme_img-dark')
 let toggleImgLight = document.querySelector('.theme_img-light')
+let formulario = document.querySelectorAll('.formulario')
 
 trocaBtn.addEventListener('click', () => {
     trocaBtn.classList.toggle("light")
@@ -169,12 +171,24 @@ trocaBtn.addEventListener('click', () => {
     sidebar.classList.toggle('light')
     containers.forEach(container => container.classList.toggle('light'))
     sideButton.forEach(button => button.classList.toggle('light'))
+    formulario.forEach(form => form.classList.toggle('light'))
+    sideButtonImg.forEach(buttonImg => {
+        let srcAtual = buttonImg.getAttribute('src');
+    
+        if (srcAtual.includes('/light/')) {
+            buttonImg.setAttribute('src', srcAtual.replace('/light/', '/dark/').replace('_light', '_dark'));
+        } else {
+            buttonImg.setAttribute('src', srcAtual.replace('/dark/', '/light/').replace('_dark', '_light'));
+        }
+    });
+    
     if (body.classList.contains('light')) {
         toggleImgDark.src = `./assets/icons/dark_toggle.png`;
         toggleImgLight.src = `./assets/icons/light_toggle.png`;
+         
     } else {
         toggleImgDark.src = `./assets/icons/dark.png`;
         toggleImgLight.src = `./assets/icons/light.png`;
     }
-
+    
 })
