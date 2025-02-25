@@ -12,6 +12,7 @@
   --co7: #12C3D2;
   --co8: #28F19C;
   --co8-shadow: #28f19d5e;
+  --co8-shadow2: #28f19dde;
   --co9: #01A0FA;
 
   --fonte-principal: 'Noto Sans Display';
@@ -109,7 +110,29 @@ a {
   display: block;
 }
 
+.sidebutton.ativo {
+  background-color: transparent;
+  color: var(--co8);
+  font-weight: bold;
+  border-radius: 5px;
+  border: 2px solid var(--co8);
+}
 
+.sidebutton.ativo.light {
+  background-color: transparent;
+  color: var(--co2);
+  font-weight: bold;
+  border-radius: 5px;
+  border: 2px solid var(--co2);
+}
+
+.button.light {
+  background-color: var(--co2);
+  color: var(--co5);
+  font-weight: bold;
+  border-radius: 5px;
+  border: 2px solid var(--co2);
+}
 .theme_img {
   width: 20px;
   height: 20px;
@@ -117,7 +140,7 @@ a {
 }
 
 .titulo_nome {
-  font-size: 18px;
+  font-size: 16px;
   margin-top: 1em;
   margin-bottom: 0.5em;
 
@@ -126,13 +149,14 @@ a {
 .titulo_div {
   color: var(--co8);
   font-size: 28px;
+  margin-bottom: 1em;
 }
 
 .container_wifi,
 .container_sms {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-evenly;
   align-items: center;
   gap: 1em;
   width: 100%;
@@ -141,32 +165,33 @@ a {
 .wifi_form,
 .sms_form,
 .text_form,
-.email_form {
+.email_form,
+.card_form,
+.url_form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content:  space-between;
   background-color: var(--co2);
   border-radius: 15px;
-  padding: 2em;
-  width: 50%;
+  padding: 4em;
+  box-shadow: 1px 1px 10px var(--co8);  
 }
 
 .container_qrcode {
   display: none;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 1em;
+  justify-content:  space-between;
   background-color: var(--co2);
   border-radius: 15px;
   padding: 2em;
-  width: 50%;
+  box-shadow: 1px 1px 10px var(--co8);  
 
 }
 
 .container_qrcode h3 {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 500;
 }
 
@@ -184,13 +209,13 @@ a {
 
 .card_qrcode {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 2em;
   background-color: var(--co5);
   border-radius: 15px;
-  padding: 1em;
+  
 
 
 
@@ -233,8 +258,8 @@ a {
 }
 
 .input_text {
-  width: 500px;
-  border-radius: 15px;
+  width: 450px;
+  border-radius: 5px;
   border: 2px solid var(--co8);
   color: var(--co4);
   padding: 1em;
@@ -254,6 +279,10 @@ a {
   margin-top: 2em;
 }
 
+.code_generator:hover {
+  background-color: var(--co8-shadow2);
+  box-shadow: 0 0 10px var(--co8);
+}
 .radio-buttons-container {
   display: flex;
   flex-direction: row;
@@ -315,9 +344,13 @@ a {
   border-color: var(--co5);
   box-shadow: 0 1px 20px var(--co8-shadow);
 }
-
+.textarea-texto {
+  height: 200px;
+  resize: vertical;
+  font-weight: 600;
+}
 .textarea {
-  height: 100px;
+  height: 200px;
   resize: vertical;
   font-weight: 600;
 
@@ -411,7 +444,7 @@ input:checked+.slider::before {
 }
 
 .sidebar button.light {
-  background-color: var(--co4);
+  background-color: var(--co5);
   color: var(--co2);
 }
 
@@ -427,7 +460,9 @@ body.light {
   background-color: var(--co1);
 
 }
-
+.titulo_nome.light {
+  color: var(--co2)
+}
 .sidebar.light {
   background-color: var(--co5);
 }
@@ -435,21 +470,20 @@ body.light {
 .container_qrcode.light {
   background-color: var(--co5);
 }
-
+ 
 .formulario.light {
   background-color: var(--co5);
 }
 
 .card_nome {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around ;
   flex-wrap: wrap;
-  
-  
+
+
 }
 
-.card_nome input {
-  width: 225px;
-}
+ 
+ 

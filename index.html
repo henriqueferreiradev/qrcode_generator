@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 
 <head>
     <meta charset="UTF-8">
@@ -15,7 +15,7 @@
     <div class="container">
 
         <nav class="sidebar">
-            <img class='qrcode_icon' src="./assets/icons/qr code symb.png" alt="">
+            <img class='qrcode_icon' src="./assets/icons/qrcode-icon-dark.png" alt="">
             <ul>
                 <li><button class="sidebutton" onclick="mostrarSecao('url')"><img class="sidebutton-img"
                             src="./assets/icons/light/Globe_light.png" alt="">URL</button></li>
@@ -42,28 +42,39 @@
     </div>
 
     <main class="conteudo">
-        <div id="url" class="secao container">Gerador de QR Code para URL</div>
+        <div id="url" class="secao container">
+            <div class="container_sms container">
+                <div class="url_form formulario">
+                    <h3 class="titulo_div">Crie um QR Code com sua URL</h3>
+                    <label class="titulo_nome" for="login">Url</label>
+                    <input class="input_text" id="sms_mensagem" type="text" placeholder="Digite a URL">
+                    <button class="code_generator button" onclick="gerarQrSMS()">Gerar QRCode</button>
+                </div>
+                <div class="container_qrcode" id="qrcode_sms"></div>
+            </div>
+        </div>
         <div id="card" class="secao container">
             <div class="container_sms container">
-                <div class="email_form formulario">
+                <div class="card_form formulario">
                     <h3 class="titulo_div">Texto QR Code</h3>
-                    <label class="titulo_nome" for="login">Seu nome</label>
                     <div class="card_nome">
+                        <label class="titulo_nome" for="login">Seu nome</label>
+
                         <input class="input_text" id="sms_mensagem" type="text" placeholder="Primeiro nome">
                         <input class="input_text" id="sms_mensagem" type="text" placeholder="Sobrenome">
                     </div>
-
-                    <label class="titulo_nome" for="login">Números</label>
                     <div class="card_nome">
+                        <label class="titulo_nome" for="login">Números</label>
+
                         <input class="input_text" id="sms_mensagem" type="text" placeholder="Celular">
                         <input class="input_text" id="sms_mensagem" type="text" placeholder="Telefone">
                         <input class="input_text" id="sms_mensagem" type="text" placeholder="Fax">
                     </div>
                     <label class="titulo_nome" for="login">E-mail</label>
                     <input class="input_text" id="sms_mensagem" type="text" placeholder="seuemail@teste.com">
-
-                    <label class="titulo_nome" for="login">Empresa</label>
                     <div class="card_nome">
+                        <label class="titulo_nome" for="login">Empresa</label>
+
                         <input class="input_text" id="sms_mensagem" type="text" placeholder="Empresa">
                         <input class="input_text" id="sms_mensagem" type="text" placeholder="Cargo">
                     </div>
@@ -71,27 +82,26 @@
                     <input class="input_text" id="sms_mensagem" type="text" placeholder="Sua rua">
 
                     <div class="card_nome">
-                        <input class="input_text" id="sms_mensagem" type="text" placeholder="Cidade">
-                        <input class="input_text" id="sms_mensagem" type="text" placeholder="CEP">
+                        <input class="input_text input_text-cidade" id="sms_mensagem" type="text" placeholder="Cidade">
+                        <input class="input_text input_text-cep" id="sms_mensagem" type="text" placeholder="CEP">
                     </div>
                     <input class="input_text" id="sms_mensagem" type="text" placeholder="Estado">
                     <input class="input_text" id="sms_mensagem" type="text" placeholder="País">
                     <input class="input_text" id="sms_mensagem" type="text" placeholder="www.website.com">
 
-                    <button class="code_generator" onclick="gerarQrSMS()">Gerar QRCode</button>
+                    <button class="code_generator button" onclick="gerarQrSMS()">Gerar QRCode</button>
                 </div>
                 <div class="container_qrcode" id="qrcode_sms"></div>
             </div>
         </div>
         <div id="text" class="secao container">
             <div class="container_sms container">
-                <div class="text_form">
+                <div class="text_form formulario">
                     <h3 class="titulo_div">Crie um QR Code de texto</h3>
-
                     <label class="titulo_nome" for="login">Mensagem</label>
-                    <textarea class="input_text textarea" name="textarea" id="textarea"
+                    <textarea class="input_text textarea-texto" name="textarea" id="textarea"
                         placeholder="Digite sua mensagem"></textarea>
-                    <button class="code_generator" onclick="gerarQrSMS()">Gerar QRCode</button>
+                    <button class="code_generator button" onclick="gerarQrSMS()">Gerar QRCode</button>
                 </div>
                 <div class="container_qrcode" id="qrcode_sms"></div>
             </div>
@@ -107,7 +117,7 @@
                     <label class="titulo_nome" for="login">Mensagem</label>
                     <textarea class="input_text textarea" name="textarea" id="textarea"
                         placeholder="Digite sua mensagem"></textarea>
-                    <button class="code_generator" onclick="gerarQrSMS()">Gerar QRCode</button>
+                    <button class="code_generator button" onclick="gerarQrSMS()">Gerar QRCode</button>
                 </div>
                 <div class="container_qrcode" id="qrcode_sms"></div>
             </div>
@@ -120,7 +130,7 @@
                     <input class="input_text" id="sms_mensagem" type="text" placeholder="SMS">
                     <label class="titulo_nome" for="login">Mensagem</label>
                     <textarea class="input_text textarea" name="textarea" id="textarea"></textarea>
-                    <button class="code_generator" onclick="gerarQrSMS()">Gerar QRCode</button>
+                    <button class="code_generator button" onclick="gerarQrSMS()">Gerar QRCode</button>
                 </div>
                 <div class="container_qrcode" id="qrcode_sms"></div>
             </div>
@@ -128,12 +138,16 @@
         <div id="wifi" class="secao container">
             <div class="container_wifi container">
                 <div class="wifi_form formulario">
-                    <h3 class="titulo_div">Wifi QR Code</h3>
-                    <label class="titulo_nome" for="login">Nome da rede</label>
-                    <input class="input_text input_text-login" type="text" placeholder="Login da rede">
-                    <label class="titulo_nome" for="login">Senha da rede</label>
-                    <input class="input_text input_text-senha" type="text" placeholder="Senha da rede">
 
+                    <h3 class="titulo_div">Wifi QR Code</h3>
+                    <div class="card_nome">
+                        <label class="titulo_nome" for="login">Nome da rede</label>
+                        <input class="input_text input_text-login" type="text" placeholder="Login da rede">
+                    </div>
+                    <div class="card_nome">
+                        <label class="titulo_nome" for="login">Senha da rede</label>
+                        <input class="input_text input_text-senha" type="text" placeholder="Senha da rede">
+                    </div>
                     <div class="radio-buttons_container">
 
                         <div class="radio-buttons-container">
@@ -165,10 +179,10 @@
 
 
                     </div>
-                    <button class="code_generator" onclick="gerarQrWifi()">Gerar QRCode</button>
+                    <button class="code_generator button" onclick="gerarQrWifi()">Gerar QRCode</button>
 
                 </div>
-                <div class="container_qrcode light" id="qrcode">
+                <div class="container_qrcode container" id="qrcode">
 
 
                 </div>

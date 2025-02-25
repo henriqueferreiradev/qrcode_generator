@@ -1,16 +1,15 @@
-
-
 function mostrarSecao(secaoId) {
+
     document.querySelectorAll('.secao').forEach(secao => {
         secao.classList.remove('ativa');
     });
-
     document.getElementById(secaoId).classList.add('ativa');
+    document.querySelectorAll('.sidebutton').forEach(botao => {
+        botao.classList.remove('ativo');
+    });
+    document.querySelector(`button[onclick="mostrarSecao('${secaoId}')"]`).classList.add('ativo');
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-    mostrarSecao('url');
-});
 async function gerarQrEmail() {
 
 }
@@ -80,7 +79,7 @@ async function gerarQrWifi() {
     qrDiv.innerHTML = "";
     qrDiv.style.display = 'flex'
 
-    QRCode.toDataURL(wifi, { width: 260, height: 260, margin: 2 }, function (error, url) {
+    QRCode.toDataURL(wifi, { width: 200, height: 200, margin: 2 }, function (error, url) {
         if (error) {
             console.error(error);
         } else {
@@ -95,7 +94,6 @@ async function gerarQrWifi() {
                             <img src="${url}" alt="QR Code">
                         </div>
                         <div class="qrcode_resultado">
-                            <img class='resultado_img' src="./assets/icons/wifi_logo.png" alt="Wi-Fi">
                             <p>Nome da Rede (SSID)</p>
                             <h2 class="resultado_texto">${login}</h2>
                             <p>Senha da Rede</p>
@@ -160,35 +158,72 @@ let body = document.querySelector('body')
 let sidebar = document.querySelector('.sidebar')
 let containers = document.querySelectorAll('.container')
 let sideButton = document.querySelectorAll('.sidebutton')
+let QRButton = document.querySelectorAll('.button')
 let sideButtonImg = document.querySelectorAll('.sidebutton-img')
 let toggleImgDark = document.querySelector('.theme_img-dark')
 let toggleImgLight = document.querySelector('.theme_img-light')
 let formulario = document.querySelectorAll('.formulario')
+let qrcodeIconImg = document.querySelector('.qrcode_icon')
+let tituloNome = document.querySelectorAll('.titulo_nome')
+ 
 
 trocaBtn.addEventListener('click', () => {
     trocaBtn.classList.toggle("light")
     body.classList.toggle("light")
     sidebar.classList.toggle('light')
+  
+    
     containers.forEach(container => container.classList.toggle('light'))
     sideButton.forEach(button => button.classList.toggle('light'))
+    QRButton.forEach(btn => btn.classList.toggle('light'))
+    tituloNome.forEach(nome => nome.classList.toggle('light'))
     formulario.forEach(form => form.classList.toggle('light'))
+    
     sideButtonImg.forEach(buttonImg => {
         let srcAtual = buttonImg.getAttribute('src');
-    
+
         if (srcAtual.includes('/light/')) {
             buttonImg.setAttribute('src', srcAtual.replace('/light/', '/dark/').replace('_light', '_dark'));
         } else {
             buttonImg.setAttribute('src', srcAtual.replace('/dark/', '/light/').replace('_dark', '_light'));
         }
     });
-    
+
     if (body.classList.contains('light')) {
         toggleImgDark.src = `./assets/icons/dark_toggle.png`;
         toggleImgLight.src = `./assets/icons/light_toggle.png`;
-         
+        qrcodeIconImg.src =`./assets/icons/qrcode-icon-light.png`
+
     } else {
         toggleImgDark.src = `./assets/icons/dark.png`;
         toggleImgLight.src = `./assets/icons/light.png`;
+        qrcodeIconImg.src =`./assets/icons/qrcode-icon-dark.png`
     }
-    
+
 })
+
+sideButton.forEach(button => {
+    button.addEventListener("mouseover", () => {
+        let buttonImg = button.querySelector('.sidebutton-img');
+        if (body.classList.contains('light')) {
+            return;
+        }
+        let srcAtual = buttonImg.getAttribute("src");
+        buttonImg.setAttribute("src", srcAtual.includes("/light/")
+            ? srcAtual.replace('/light/', '/dark/').replace('_light', '_dark')
+            : srcAtual.replace('/dark/', '/light/').replace('_dark', '_light')
+        );
+    });
+
+    button.addEventListener("mouseout", () => {
+        if (body.classList.contains('light')) {
+            return;
+        }
+        let buttonImg = button.querySelector('.sidebutton-img');
+        let srcAtual = buttonImg.getAttribute("src");
+        buttonImg.setAttribute("src", srcAtual.includes("/dark/")
+            ? srcAtual.replace('/dark/', '/light/').replace('_dark', '_light')
+            : srcAtual.replace('/light/', '/dark/').replace('_light', '_dark')
+        );
+    });
+});
