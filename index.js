@@ -85,24 +85,24 @@ async function gerarQrWifi() {
         } else {
             console.log("QR Code gerado com sucesso!");
 
-            qrDiv.innerHTML = `
-            <h3>Aqui está seu QRCODE</h3>
-                <div class="div_card_qrcode" id='div_card_qrcode'>
-                
-                    <div class="card_qrcode">
-                        <div class="qr_img">
-                            <img src="${url}" alt="QR Code">
-                        </div>
-                        <div class="qrcode_resultado">
-                            <p>Nome da Rede (SSID)</p>
-                            <h2 class="resultado_texto">${login}</h2>
-                            <p>Senha da Rede</p>
-                            <h2 class="resultado_texto">${senha}</h2>
-                        </div>
-                    </div>
-                    <p class="resultado_dica">Escaneie o QRCODE ou pesquise pelo SSID e senha.</p>
-                </div>
-                <button class="code_generator" onclick="baixarCardWifi()">Download QrCode</button>`;
+//            qrDiv.innerHTML = `
+//             <h3>Aqui está seu QRCODE</h3>
+//                 <div class="div_card_qrcode" id='div_card_qrcode'>
+ //                
+//                     <div class="card_qrcode">
+//                         <div class="qr_img">
+//                             <img src="${url}" alt="QR Code">
+//                         </div>
+//                         <div class="qrcode_resultado">
+//                             <p>Nome da Rede (SSID)</p>
+//                             <h2 class="resultado_texto">${login}</h2>
+//                             <p>Senha da Rede</p>
+//                             <h2 class="resultado_texto">${senha}</h2>
+//                         </div>
+//                     </div>
+//                     <p class="resultado_dica">Escaneie o QRCODE ou pesquise pelo SSID e senha.</p>
+//                 </div>
+//                 <button class="code_generator" onclick="baixarCardWifi()">Download QrCode</button>`;
         }
     });
 }

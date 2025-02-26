@@ -98,8 +98,8 @@ a {
 }
 
 .conteudo {
-  margin-left: 220px;
-  padding: 20px;
+  margin-left: 250px;
+  height: 100vh;
   flex-grow: 1;
 }
 
@@ -162,10 +162,15 @@ a {
 .container_sms {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
-  gap: 1em;
-  width: 100%;
+  background-color: var(--co2);
+ 
+   
+  box-shadow: 0px 0px 20px 0px var(--co8);
+  padding: 2em;
+
+
 }
 
 .wifi_form,
@@ -176,24 +181,18 @@ a {
 .url_form {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: space-between;
-  background-color: var(--co2);
+  align-items: center;
   border-radius: 15px;
-  padding: 4em;
-  box-shadow: 0px 0px 20px 0px var(--co8);
+  width: 50%;
 }
 
 .container_qrcode {
-  display: none;
+  display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  background-color: var(--co2);
-  border-radius: 15px;
-  padding: 2em;
-  box-shadow: 1px 1px 10px var(--co8);
-
+  justify-content: center;
+  width: 50%;
 }
 
 .container_qrcode h3 {
@@ -218,13 +217,9 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2em;
+  gap: 1em;
   background-color: var(--co5);
   border-radius: 15px;
-
-
-
-
 }
 
 .resultado_titulo {
@@ -264,7 +259,7 @@ a {
 }
 
 .input_text {
-  width: 450px;
+  
   border-radius: 5px;
   border: 2px solid var(--co8);
   color: var(--co4);
@@ -496,7 +491,7 @@ body.light {
   border: var(--co2) 2px solid;
 }
 
- 
+
 
 .card_nome {
   display: flex;
