@@ -11,7 +11,7 @@ function mostrarSecao(secaoId) {
 }
 
 async function gerarQrEmail() {
-
+    
 }
 async function gerarQrSMS() {
     const numero = document.getElementById('sms_mensagem')
@@ -165,6 +165,7 @@ let toggleImgLight = document.querySelector('.theme_img-light')
 let formulario = document.querySelectorAll('.formulario')
 let qrcodeIconImg = document.querySelector('.qrcode_icon')
 let tituloNome = document.querySelectorAll('.titulo_nome')
+let inputText = document.querySelectorAll('.input_text')
  
 
 trocaBtn.addEventListener('click', () => {
@@ -178,6 +179,7 @@ trocaBtn.addEventListener('click', () => {
     QRButton.forEach(btn => btn.classList.toggle('light'))
     tituloNome.forEach(nome => nome.classList.toggle('light'))
     formulario.forEach(form => form.classList.toggle('light'))
+    inputText.forEach(input => input.classList.toggle('light'))
     
     sideButtonImg.forEach(buttonImg => {
         let srcAtual = buttonImg.getAttribute('src');
