@@ -229,3 +229,14 @@ sideButton.forEach(button => {
         );
     });
 });
+
+function toggleDropdown(element) {
+    let parent = element.parentElement;
+    let isOpen = parent.classList.contains("active");
+
+    document.querySelectorAll(".dropdown").forEach(drop => drop.classList.remove("active"));
+ 
+    if (!isOpen) {
+        parent.classList.add("active");
+    }
+}

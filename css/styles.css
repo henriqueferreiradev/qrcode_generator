@@ -164,12 +164,11 @@ a {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: var(--co2);
- 
-   
+  height: 100vh;
+  background-color: var(--co2);   
   box-shadow: 0px 0px 20px 0px var(--co8);
   padding: 2em;
-
+  border-radius: 15px;
 
 }
 
