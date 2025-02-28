@@ -136,47 +136,75 @@
         </div>
         <div id="wifi" class="secao container">
             <div class="container_wifi">
-                <div class="wifi_form">
-                    <h3 class="titulo_div">Wifi QR Code</h3>
-                    <div class="card_nome">
-                        <label class="titulo_nome" for="login">Nome da rede</label>
-                        <input class="input_text input_text-login" type="text" placeholder="Login da rede">
-                    </div>
-                    <div class="card_nome">
-                        <label class="titulo_nome" for="login">Senha da rede</label>
-                        <input class="input_text input_text-senha" type="text" placeholder="Senha da rede">
-                    </div>
-                    <div class="radio-buttons_container">
-                        <div class="radio-buttons-container">
-                            <div class="radio-button">
-                                <input name="criptografia" id="radio2" value="nenhuma" class="radio-button__input"
-                                    type="radio">
-                                <label for="radio2" class="radio-button__label">
-                                    <span class="radio-button__custom"></span>
-                                    Nenhuma
-                                </label>
-                            </div>
-                            <div class="radio-button">
-                                <input name="criptografia" id="radio1" value="wpa" class="radio-button__input"
-                                    type="radio">
-                                <label for="radio1" class="radio-button__label">
-                                    <span class="radio-button__custom"></span>
-                                    Wpa/Wpa2
-                                </label>
-                            </div>
-                            <div class="radio-button">
-                                <input name="criptografia" id="radio3" value="wep" class="radio-button__input"
-                                    type="radio">
-                                <label for="radio3" class="radio-button__label">
-                                    <span class="radio-button__custom"></span>
-                                    Wep
-                                </label>
-                            </div>
+                <div class="div_container_wifi">
+                    <div class="dropdown">
+                        <div class="dropdown-header" onclick="toggleDropdown(this)">
+                            <span>INFORMAÇÕES</span>
+                            <span>+</span>
                         </div>
-                        <button class="code_generator button" onclick="gerarQrWifi()">Gerar QRCode</button>
+                        <div class="dropdown-content">
+                            <div class="wifi_form">
+                                <h3 class="titulo_div">Wifi QR Code</h3>
+                                <div class="card_nome">
+                                    <label class="titulo_nome" for="login">Nome da rede</label>
+                                    <input class="input_text input_text-login" type="text" placeholder="Login da rede">
+                                </div>
+                                <div class="card_nome">
+                                    <label class="titulo_nome" for="login">Senha da rede</label>
+                                    <input class="input_text input_text-senha" type="text" placeholder="Senha da rede">
+                                </div>
+                                <div class="radio-buttons_container">
+                                    <div class="radio-buttons-container">
+                                        <div class="radio-button">
+                                            <input name="criptografia" id="radio2" value="nenhuma" class="radio-button__input"
+                                                type="radio">
+                                            <label for="radio2" class="radio-button__label">
+                                                <span class="radio-button__custom"></span>
+                                                Nenhuma
+                                            </label>
+                                        </div>
+                                        <div class="radio-button">
+                                            <input name="criptografia" id="radio1" value="wpa" class="radio-button__input"
+                                                type="radio">
+                                            <label for="radio1" class="radio-button__label">
+                                                <span class="radio-button__custom"></span>
+                                                Wpa/Wpa2
+                                            </label>
+                                        </div>
+                                        <div class="radio-button">
+                                            <input name="criptografia" id="radio3" value="wep" class="radio-button__input"
+                                                type="radio">
+                                            <label for="radio3" class="radio-button__label">
+                                                <span class="radio-button__custom"></span>
+                                                Wep
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <button class="code_generator button" onclick="gerarQrWifi()">Gerar QRCode</button>
+                                </div>
+                            </div>
+                    
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <div class="dropdown-header" onclick="toggleDropdown(this)">
+                            <span>QR Code</span>
+                            <span>+</span>
+                        </div>
+                        <div class="dropdown-content">
+                            <p>Aqui vai toda a lógica do QR Code.</p>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <div class="dropdown-header" onclick="toggleDropdown(this)">
+                            <span>QR Code</span>
+                            <span>+</span>
+                        </div>
+                        <div class="dropdown-content">
+                            <p>Aqui vai toda a lógica do QR Code.</p>
+                        </div>
                     </div>
                 </div>
-
                 <div class="container_qrcode container" id="qrcode">
                     <h3>Aqui está seu QRCODE</h3>
                     <div class="div_card_qrcode" id='div_card_qrcode'>
@@ -201,3 +229,67 @@
 </body>
 
 </html>
+
+
+
+
+
+<!--
+<div id="wifi" class="secao container">
+    <div class="container_wifi">
+        
+        <div class="wifi_form">
+            <h3 class="titulo_div">Wifi QR Code</h3>
+            <div class="card_nome">
+                <label class="titulo_nome" for="login">Nome da rede</label>
+                <input class="input_text input_text-login" type="text" placeholder="Login da rede">
+            </div>
+            <div class="card_nome">
+                <label class="titulo_nome" for="login">Senha da rede</label>
+                <input class="input_text input_text-senha" type="text" placeholder="Senha da rede">
+            </div>
+            <div class="radio-buttons_container">
+                <div class="radio-buttons-container">
+                    <div class="radio-button">
+                        <input name="criptografia" id="radio2" value="nenhuma" class="radio-button__input"
+                            type="radio">
+                        <label for="radio2" class="radio-button__label">
+                            <span class="radio-button__custom"></span>
+                            Nenhuma
+                        </label>
+                    </div>
+                    <div class="radio-button">
+                        <input name="criptografia" id="radio1" value="wpa" class="radio-button__input"
+                            type="radio">
+                        <label for="radio1" class="radio-button__label">
+                            <span class="radio-button__custom"></span>
+                            Wpa/Wpa2
+                        </label>
+                    </div>
+                    <div class="radio-button">
+                        <input name="criptografia" id="radio3" value="wep" class="radio-button__input"
+                            type="radio">
+                        <label for="radio3" class="radio-button__label">
+                            <span class="radio-button__custom"></span>
+                            Wep
+                        </label>
+                    </div>
+                </div>
+                <button class="code_generator button" onclick="gerarQrWifi()">Gerar QRCode</button>
+            </div>
+        </div>
+
+        <div class="container_qrcode container" id="qrcode">
+            <h3>Aqui está seu QRCODE</h3>
+            <div class="div_card_qrcode" id='div_card_qrcode'>
+                <div class="card_qrcode">
+                    <div class="qr_img">
+                        <img src="${}" alt="QR Code">
+                    </div>
+                </div>
+                <button class="code_generator" onclick="baixarCardWifi()">Download QrCode</button>
+            </div>
+        </div>
+    </div>
+
+</div> -->
