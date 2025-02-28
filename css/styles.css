@@ -188,17 +188,20 @@ a {
 .dropdown.active .dropdown-content {
   display: block;
 }
-
+.mais_menos {
+  font-size: 20px;
+  color: var(--co8);
+}
 .container_wifi,
 .container_sms {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-evenly;
+  align-items: start;
   height: 905px;
   background-color: var(--co2);
   box-shadow: 0px 0px 20px 0px var(--co8);
-  padding: 0 5em;
+  padding: 2em 0em;
   border-radius: 15px;
 
 }
@@ -214,14 +217,16 @@ a {
   justify-content: center;
   align-items: center;
   border-radius: 15px;
- }
+}
 
 .container_qrcode {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 50%;
+  width: 30%;
+  height: 100%;
+  background-color: var(--co3);
 }
 
 .container_qrcode h3 {
@@ -288,9 +293,9 @@ a {
 }
 
 .input_text {
-
+  width: 350px;
   border-radius: 5px;
-  border: 2px solid var(--co8);
+  border-bottom: 2px solid var(--co8);
   color: var(--co4);
   padding: 1em;
   font-size: 14px;
@@ -530,4 +535,31 @@ body.light {
   flex-wrap: wrap;
 
 
+}
+
+.color-picker-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Esconde o input padrão */
+#color-picker {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Cria um botão personalizado */
+.custom-picker {
+  width: 60px;
+  height: 40px;
+  border-radius: 5px;
+  border: 2px solid #ccc;
+  background-color: #000; /* Cor padrão */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

@@ -11,7 +11,7 @@ function mostrarSecao(secaoId) {
 }
 
 async function gerarQrEmail() {
-    
+
 }
 async function gerarQrSMS() {
     const numero = document.getElementById('sms_mensagem')
@@ -85,24 +85,24 @@ async function gerarQrWifi() {
         } else {
             console.log("QR Code gerado com sucesso!");
 
-//            qrDiv.innerHTML = `
-//             <h3>Aqui está seu QRCODE</h3>
-//                 <div class="div_card_qrcode" id='div_card_qrcode'>
- //                
-//                     <div class="card_qrcode">
-//                         <div class="qr_img">
-//                             <img src="${url}" alt="QR Code">
-//                         </div>
-//                         <div class="qrcode_resultado">
-//                             <p>Nome da Rede (SSID)</p>
-//                             <h2 class="resultado_texto">${login}</h2>
-//                             <p>Senha da Rede</p>
-//                             <h2 class="resultado_texto">${senha}</h2>
-//                         </div>
-//                     </div>
-//                     <p class="resultado_dica">Escaneie o QRCODE ou pesquise pelo SSID e senha.</p>
-//                 </div>
-//                 <button class="code_generator" onclick="baixarCardWifi()">Download QrCode</button>`;
+            //            qrDiv.innerHTML = `
+            //             <h3>Aqui está seu QRCODE</h3>
+            //                 <div class="div_card_qrcode" id='div_card_qrcode'>
+            //                
+            //                     <div class="card_qrcode">
+            //                         <div class="qr_img">
+            //                             <img src="${url}" alt="QR Code">
+            //                         </div>
+            //                         <div class="qrcode_resultado">
+            //                             <p>Nome da Rede (SSID)</p>
+            //                             <h2 class="resultado_texto">${login}</h2>
+            //                             <p>Senha da Rede</p>
+            //                             <h2 class="resultado_texto">${senha}</h2>
+            //                         </div>
+            //                     </div>
+            //                     <p class="resultado_dica">Escaneie o QRCODE ou pesquise pelo SSID e senha.</p>
+            //                 </div>
+            //                 <button class="code_generator" onclick="baixarCardWifi()">Download QrCode</button>`;
         }
     });
 }
@@ -166,21 +166,21 @@ let formulario = document.querySelectorAll('.formulario')
 let qrcodeIconImg = document.querySelector('.qrcode_icon')
 let tituloNome = document.querySelectorAll('.titulo_nome')
 let inputText = document.querySelectorAll('.input_text')
- 
+
 
 trocaBtn.addEventListener('click', () => {
     trocaBtn.classList.toggle("light")
     body.classList.toggle("light")
     sidebar.classList.toggle('light')
-  
-    
+
+
     containers.forEach(container => container.classList.toggle('light'))
     sideButton.forEach(button => button.classList.toggle('light'))
     QRButton.forEach(btn => btn.classList.toggle('light'))
     tituloNome.forEach(nome => nome.classList.toggle('light'))
     formulario.forEach(form => form.classList.toggle('light'))
     inputText.forEach(input => input.classList.toggle('light'))
-    
+
     sideButtonImg.forEach(buttonImg => {
         let srcAtual = buttonImg.getAttribute('src');
 
@@ -194,12 +194,12 @@ trocaBtn.addEventListener('click', () => {
     if (body.classList.contains('light')) {
         toggleImgDark.src = `./assets/icons/dark_toggle.png`;
         toggleImgLight.src = `./assets/icons/light_toggle.png`;
-        qrcodeIconImg.src =`./assets/icons/qrcode-icon-light.png`
+        qrcodeIconImg.src = `./assets/icons/qrcode-icon-light.png`
 
     } else {
         toggleImgDark.src = `./assets/icons/dark.png`;
         toggleImgLight.src = `./assets/icons/light.png`;
-        qrcodeIconImg.src =`./assets/icons/qrcode-icon-dark.png`
+        qrcodeIconImg.src = `./assets/icons/qrcode-icon-dark.png`
     }
 
 })
@@ -233,10 +233,20 @@ sideButton.forEach(button => {
 function toggleDropdown(element) {
     let parent = element.parentElement;
     let isOpen = parent.classList.contains("active");
-
+    let maisMenos = element.querySelector('.mais_menos')
+    let spanInfos = element.querySelector('.infos_span')
     document.querySelectorAll(".dropdown").forEach(drop => drop.classList.remove("active"));
- 
+
     if (!isOpen) {
         parent.classList.add("active");
+        maisMenos.src = `./assets/icons/minus.png`
+        spanInfos.style.color = '#28F19C'
+        spanInfos.style.fontWeight = '600'
+
+    } else {
+        maisMenos.src = `./assets/icons/plus.png`
+        spanInfos.style.color = '#FFFFFF'
+        spanInfos.style.fontWeight = '400'
+
     }
 }
