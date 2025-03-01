@@ -230,23 +230,38 @@ sideButton.forEach(button => {
     });
 });
 
+
 function toggleDropdown(element) {
+    let allDropdowns = document.querySelectorAll('.dropdown'); 
     let parent = element.parentElement;
     let isOpen = parent.classList.contains("active");
-    let maisMenos = element.querySelector('.mais_menos')
-    let spanInfos = element.querySelector('.infos_span')
-    document.querySelectorAll(".dropdown").forEach(drop => drop.classList.remove("active"));
+
+
+    allDropdowns.forEach(dropdown => {
+        if (dropdown !== parent) { 
+            dropdown.classList.remove("active");
+            let icon = dropdown.querySelector('.mais_menos');
+            let span = dropdown.querySelector('.infos_span');
+            if (icon) icon.src = `./assets/icons/plus.png`;
+            if (span) {
+                span.style.color = '#FFFFFF';
+                span.style.fontWeight = '400';
+            }
+        }
+    });
+
+    let maisMenos = element.querySelector('.mais_menos');
+    let spanInfos = element.querySelector('.infos_span');
 
     if (!isOpen) {
         parent.classList.add("active");
-        maisMenos.src = `./assets/icons/minus.png`
-        spanInfos.style.color = '#28F19C'
-        spanInfos.style.fontWeight = '600'
-
+        maisMenos.src = `./assets/icons/minus.png`;
+        spanInfos.style.color = '#28F19C';
+        spanInfos.style.fontWeight = '600';
     } else {
-        maisMenos.src = `./assets/icons/plus.png`
-        spanInfos.style.color = '#FFFFFF'
-        spanInfos.style.fontWeight = '400'
-
+        parent.classList.remove("active");
+        maisMenos.src = `./assets/icons/plus.png`;
+        spanInfos.style.color = '#FFFFFF';
+        spanInfos.style.fontWeight = '400';
     }
 }
