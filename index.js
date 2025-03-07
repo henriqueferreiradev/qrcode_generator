@@ -307,7 +307,9 @@ sideButton.forEach(button => {
     });
 });
 
+
 function toggleDropdown(element) {
+    let allDropdowns = document.querySelectorAll('.dropdown'); 
     let parent = element.parentElement;
     let isOpen = parent.classList.contains("active");
     let maisMenos = element.querySelector('.mais_menos');
