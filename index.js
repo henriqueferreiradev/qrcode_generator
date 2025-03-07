@@ -10,46 +10,117 @@ function mostrarSecao(secaoId) {
     document.querySelector(`button[onclick="mostrarSecao('${secaoId}')"]`).classList.add('ativo');
 }
 
-async function gerarQrEmail() {
 
-}
-async function gerarQrSMS() {
-    const numero = document.getElementById('sms_mensagem')
-    const mensagem = document.getElementById('textarea')
+let coresSelecionadas = {
+    cor1: "#1D1B31",
+    cor2: "#28F19C"
+};
 
-    if (!numero) {
-        alert('Preencha todos os campos.');
-        return;
-    }
-    let sms;
-    sms = `sms:+${numero}?body=${mensagem}`
+function syncColorInputs(customDiv, picker, text, key) {
 
-    console.log(wifi)
+    customDiv.style.backgroundColor = picker.value;
 
-    const qrDiv = document.getElementById("qrcode_sms");
-    qrDiv.innerHTML = "";
-    qrDiv.style.display = 'flex'
+    customDiv.addEventListener("click", () => {
+        picker.click();
+    });
 
-    QRCode.toDataURL(sms, { width: 260, height: 260, margin: 2 }, function (error, url) {
-        if (error) {
-            console.error(error);
-        } else {
-            console.log("QR Code gerado com sucesso!");
+    picker.addEventListener("input", () => {
+        customDiv.style.backgroundColor = picker.value;
+        text.value = picker.value.toUpperCase();
+        coresSelecionadas[key] = picker.value;
+    });
 
-            qrDiv.innerHTML = `
-            <h3>Aqui está seu QRCODE</h3>
-                <div class="div_card_qrcode" id='div_card_qrcode'>
-                    <div class="card_qrcode">
-                        <div class="qr_img">
-                            <img src="${url}" alt="QR Code">
-                        </div>
-                    </div>
-                    <p class="resultado_dica">Scan Now</p>
-                </div>
-                <button class="code_generator" onclick="baixarCardWifi()">Download QrCode</button>`;
+    text.addEventListener("input", () => {
+        if (/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(text.value)) {
+            picker.value = text.value;
+            customDiv.style.backgroundColor = text.value;
+            coresSelecionadas[key] = text.value;
         }
     });
 }
+
+
+
+syncColorInputs(document.getElementById("custom-picker-1"), document.getElementById("color-picker-1"), document.getElementById("color-text-1"), "cor1");
+syncColorInputs(document.getElementById("custom-picker-2"), document.getElementById("color-picker-2"), document.getElementById("color-text-2"), "cor2");
+
+console.log(coresSelecionadas.cor1, coresSelecionadas.cor2);
+
+
+async function gerarQrEmail() {
+
+}
+function gerarQrSMS() {
+    const numero = document.querySelector('.input_text-sms').value;
+    const mensagem = document.querySelector('.textarea_sms').value;
+
+
+
+    if (!numero || !mensagem) {
+        alert('Preencha todos os campos.');
+        console.log("Número:", numero);
+        console.log("Mensagem:", mensagem);
+
+        return;
+    }
+
+
+    let sms = `sms:+${numero}?body=${encodeURIComponent(mensagem)}`;
+
+    const qrDiv = document.getElementById("qrcode_sms");
+    qrDiv.innerHTML = "";
+    qrDiv.style.display = 'flex';
+
+    QRCode.toDataURL(sms, {
+        width: 400,
+        height: 350,
+        margin: 0,
+        color: { light: coresSelecionadas.cor1, dark: coresSelecionadas.cor2 }
+    }, function (error, url) {
+        if (error) {
+            console.error(error);
+        } else {
+            console.log(url);
+
+            qrDiv.innerHTML = `
+                <h3 class="titulo_div">Aqui está seu QRCODE</h3>
+                <div class="div_card_qrcode" id='div_card_qrcode'>
+                    <div class="card_qrcode">
+                        <div class="qr_img">
+                            <img class="resultado_img" id="resultado_img" src="${url}" alt="QR Code">
+                        </div>
+
+                        <input type="range" id="sizeRange" class="range-input" min="100" max="2000" value="1000" step="10">
+                        <div class="div_sizeLabel">
+                            <p class="size_label-p">Baixa qualidade</p>
+                            <p class="size_label" id="sizeLabel">1000 x 1000 px</p>
+                            <p class="size_label-p">Alta qualidade</p>
+                        </div>
+                    </div>
+                    <div class="div_buttons">
+                        <button class="code_generator button" onclick="gerarQrSMS()">Gerar QRCode</button>
+                        <button class="code_generator" onclick="baixarCardSMS()">Baixar PNG</button>
+                    </div>
+                </div>
+            </div>`;
+        }
+    });
+}
+
+// Função para baixar a imagem do QR Code
+function baixarCardSMS() {
+    const img = document.getElementById("resultado_img");
+
+    if (img && img.src) {
+        const link = document.createElement('a');
+        link.href = img.src;
+        link.download = 'QRCode_SMS.png';
+        link.click();
+    } else {
+        console.error("Imagem não encontrada ou não gerada ainda.");
+    }
+}
+
 async function gerarQrWifi() {
     const login = document.querySelector('.input_text-login').value;
     const senha = document.querySelector('.input_text-senha').value;
@@ -79,30 +150,35 @@ async function gerarQrWifi() {
     qrDiv.innerHTML = "";
     qrDiv.style.display = 'flex'
 
-    QRCode.toDataURL(wifi, { width: 200, height: 200, margin: 2 }, function (error, url) {
+    QRCode.toDataURL(wifi, { width: 450, height: 450, margin: 2, color: { light: coresSelecionadas.cor1, dark: coresSelecionadas.cor2 } }, function (error, url) {
         if (error) {
             console.error(error);
         } else {
             console.log("QR Code gerado com sucesso!");
 
-            //            qrDiv.innerHTML = `
-            //             <h3>Aqui está seu QRCODE</h3>
-            //                 <div class="div_card_qrcode" id='div_card_qrcode'>
-            //                
-            //                     <div class="card_qrcode">
-            //                         <div class="qr_img">
-            //                             <img src="${url}" alt="QR Code">
-            //                         </div>
-            //                         <div class="qrcode_resultado">
-            //                             <p>Nome da Rede (SSID)</p>
-            //                             <h2 class="resultado_texto">${login}</h2>
-            //                             <p>Senha da Rede</p>
-            //                             <h2 class="resultado_texto">${senha}</h2>
-            //                         </div>
-            //                     </div>
-            //                     <p class="resultado_dica">Escaneie o QRCODE ou pesquise pelo SSID e senha.</p>
-            //                 </div>
-            //                 <button class="code_generator" onclick="baixarCardWifi()">Download QrCode</button>`;
+            qrDiv.innerHTML = `
+                 
+                    <h3 class="titulo_div">Aqui está seu QRCODE</h3>
+                    <div class="div_card_qrcode" id='div_card_qrcode'>
+                        <div class="card_qrcode">
+                            <div class="qr_img">
+                                <img class="resultado_img" src="${url}" alt="QR Code">
+                            </div>
+
+                            <input type="range" id="sizeRange" class="range-input" min="100" max="2000" value="1000"
+                                step="10">
+                            <div class="div_sizeLabel">
+                                <p class="size_label-p" id=" ">Baixa qualidade</p>
+                                <p class="size_label" id="sizeLabel">1000 x 1000 px</p>
+                                <p class="size_label-p" id=" ">Alta qualidade</p>
+                            </div>
+                        </div>
+                        <div class="div_buttons">
+                            <button class="code_generator button" onclick="gerarQrWifi()">Gerar QRCode</button>
+                            <button class="code_generator" onclick="baixarCardWifi()">Baixar PNG</button>
+                        </div>
+                    </div>
+                </div>`;
         }
     });
 }
@@ -142,15 +218,16 @@ async function pegarCriptografia() {
 }
 
 function baixarCardWifi() {
-    const cardWifi = document.getElementById("div_card_qrcode");
+    const img = document.querySelector(".resultado_img");
 
-    html2canvas(cardWifi).then(canvas => {
-        const imgURL = canvas.toDataURL("cardWifi/png")
-        const link = document.createElement('a')
-        link.href = imgURL
-        link.download = 'cardWifi.png'
-        link.click()
-    })
+    if (img && img.src) {
+        const link = document.createElement('a');
+        link.href = img.src;  // Usar o src da imagem (DataURL do QR Code)
+        link.download = 'cardWifi.png';
+        link.click();
+    } else {
+        console.error("Imagem não encontrada ou não gerada ainda.");
+    }
 }
 
 let trocaBtn = document.getElementById('switch')
@@ -233,20 +310,29 @@ sideButton.forEach(button => {
 function toggleDropdown(element) {
     let parent = element.parentElement;
     let isOpen = parent.classList.contains("active");
-    let maisMenos = element.querySelector('.mais_menos')
-    let spanInfos = element.querySelector('.infos_span')
-    document.querySelectorAll(".dropdown").forEach(drop => drop.classList.remove("active"));
+    let maisMenos = element.querySelector('.mais_menos');
+    let spanInfos = element.querySelector('.infos_span');
 
     if (!isOpen) {
         parent.classList.add("active");
-        maisMenos.src = `./assets/icons/minus.png`
-        spanInfos.style.color = '#28F19C'
-        spanInfos.style.fontWeight = '600'
-
+        maisMenos.src = `./assets/icons/minus.png`;
+        spanInfos.style.color = '#28F19C';
+        spanInfos.style.fontWeight = '600';
     } else {
-        maisMenos.src = `./assets/icons/plus.png`
-        spanInfos.style.color = '#FFFFFF'
-        spanInfos.style.fontWeight = '400'
-
+        parent.classList.remove("active");
+        maisMenos.src = `./assets/icons/plus.png`;
+        spanInfos.style.color = '#FFFFFF';
+        spanInfos.style.fontWeight = '400';
     }
 }
+
+const rangeInput = document.getElementById('sizeRange');
+const sizeLabel = document.getElementById('sizeLabel');
+const previewBox = document.getElementById('previewBox');
+
+rangeInput.addEventListener('input', function () {
+    const size = this.value;
+    sizeLabel.textContent = `${size} x ${size} px`;
+    previewBox.style.width = size + 'px';
+    previewBox.style.height = size + 'px';
+});

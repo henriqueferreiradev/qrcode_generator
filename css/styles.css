@@ -46,7 +46,7 @@ a {
   width: 250px;
   background: var(--co2);
   height: 100vh;
-  padding-top: 20px;
+  padding-top: 2em;
   position: fixed;
   left: 0;
   top: 0;
@@ -159,7 +159,7 @@ a {
 }
 
 .dropdown {
-  width: 40vw ;
+  width: 40vw;
   border-bottom: 2px solid var(--co8);
   border-radius: 5px;
   overflow: hidden;
@@ -188,20 +188,21 @@ a {
 .dropdown.active .dropdown-content {
   display: block;
 }
+
 .mais_menos {
   font-size: 20px;
   color: var(--co8);
 }
+
 .container_wifi,
 .container_sms {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: start;
-  height: 905px;
+
   background-color: var(--co2);
   box-shadow: 0px 0px 20px 0px var(--co8);
-  padding: 2em 0em;
   border-radius: 15px;
 
 }
@@ -219,41 +220,47 @@ a {
   border-radius: 15px;
 }
 
-.container_qrcode {
+.div_container_wifi {
+  padding: 2em 0 0 11em;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 30%;
-  height: 100%;
-  background-color: var(--co3);
 }
 
-.container_qrcode h3 {
-  font-size: 16px;
-  font-weight: 500;
+.container_qrcode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  width: 30%;
+  height: 92%;
+  background-color: var(--co3);
+  border-radius: 15px;
+  padding: 2em 0;
+  gap: 2em;
 }
+
+
 
 .div_card_qrcode {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   gap: 1em;
-  background-color: var(--co5);
   border-radius: 15px;
-  border: 1px solid var(--co2);
-}
 
+
+
+}
 
 .card_qrcode {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1em;
-  background-color: var(--co5);
-  border-radius: 15px;
+
 }
 
 .resultado_titulo {
@@ -276,7 +283,7 @@ a {
 
 .resultado_img {
   display: flex;
-  width: 100px;
+  width: 350px;
   justify-self: center;
   margin-bottom: 1em;
 }
@@ -293,9 +300,10 @@ a {
 }
 
 .input_text {
-  width: 350px;
-  border-radius: 5px;
+  width: 500px;
+  border: none;
   border-bottom: 2px solid var(--co8);
+  border-radius: 10px;
   color: var(--co4);
   padding: 1em;
   font-size: 14px;
@@ -310,7 +318,7 @@ a {
   color: var(--co6);
   border-radius: 15px;
   border: none;
-  padding: 1em 4em;
+  padding: 1em 2em;
   margin-top: 2em;
   font-weight: 600px;
 }
@@ -386,12 +394,22 @@ a {
   height: 200px;
   resize: vertical;
   font-weight: 600;
+  border: 2px solid var(--co8);
 }
 
 .textarea {
-  height: 200px;
-  resize: vertical;
+  width: 500px;
+  border: none;
+  border: 2px solid var(--co8);
+  border-radius: 5px;
+  color: var(--co4);
+  padding: 1em;
+  font-size: 14px;
+  margin: .5em;
+  background-color: transparent;
+  outline: none;
   font-weight: 600;
+  resize: vertical;
 
 }
 
@@ -537,13 +555,26 @@ body.light {
 
 }
 
+.div_picker {
+  display: flex;
+  flex-direction: row;
+  gap: .5em;
+  margin: 2em 0;
+}
+
+
 .color-picker-container {
   position: relative;
   display: inline-block;
 }
 
-/* Esconde o input padrão */
-#color-picker {
+.color-picker-container p {
+  margin-top: 0.5em;
+}
+
+
+#color-picker-1,
+#color-picker-2 {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -551,15 +582,93 @@ body.light {
   cursor: pointer;
 }
 
-/* Cria um botão personalizado */
+
 .custom-picker {
   width: 60px;
   height: 40px;
   border-radius: 5px;
-  border: 2px solid #ccc;
-  background-color: #000; /* Cor padrão */
+  border: 2px solid var(--co8);
+  background-color: #000;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.text_picker {
+  background-color: var(--co3);
+  color: var(--co4);
+  outline: none;
+  border: none;
+  border-bottom: var(--co8) solid 2px;
+  font-size: 16px;
+  font-weight: 600px;
+}
+
+.range-input {
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  background: var(--co5);
+  border-radius: 5px;
+  outline: none;
+  margin-top: 1em;
+}
+
+.range-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 30px;
+  height: 30px;
+  background: var(--co8);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--co5);
+  transition: all 0.2s ease;
+}
+
+.div_buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+}
+
+.size_label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.size_label-p {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.div_sizeLabel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  margin: 1em 0;
+}
+
+.alertas {
+  width: 300px;
+  background-color: #faaaaa;
+  padding: 1em;
+  border: 1px solid hsl(0, 100%, 76%);
+  border-radius: 20px;
+  color: var(--co2);
+  text-align: center;
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }
