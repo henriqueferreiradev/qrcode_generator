@@ -39,8 +39,6 @@ function syncColorInputs(customDiv, picker, text, key) {
     });
 }
 
-
-
 syncColorInputs(document.getElementById("custom-picker-1"), document.getElementById("color-picker-1"), document.getElementById("color-text-1"), "cor1");
 syncColorInputs(document.getElementById("custom-picker-2"), document.getElementById("color-picker-2"), document.getElementById("color-text-2"), "cor2");
 
@@ -65,17 +63,18 @@ function gerarQrSMS() {
     }
 
 
-    let sms = `sms:+${numero}?body=${encodeURIComponent(mensagem)}`;
+    let sms 
+    sms = `sms:+${numero}?body=${mensagem}`;
 
-    const qrDiv = document.getElementById("qrcode_sms");
+    const qrDiv = document.getElementById("qrcode");
     qrDiv.innerHTML = "";
     qrDiv.style.display = 'flex';
 
     QRCode.toDataURL(sms, {
         width: 400,
-        height: 350,
+        height: 450,
         margin: 0,
-        color: { light: coresSelecionadas.cor1, dark: coresSelecionadas.cor2 }
+        color: { light: coresSelecionadas.cor1, dark:coresSelecionadas.cor2 }
     }, function (error, url) {
         if (error) {
             console.error(error);
@@ -87,7 +86,7 @@ function gerarQrSMS() {
                 <div class="div_card_qrcode" id='div_card_qrcode'>
                     <div class="card_qrcode">
                         <div class="qr_img">
-                            <img class="resultado_img" id="resultado_img" src="${url}" alt="QR Code">
+                            <img class="resultado_img" id="resultadoImg" src="${url}" alt="QR Code">
                         </div>
 
                         <input type="range" id="sizeRange" class="range-input" min="100" max="2000" value="1000" step="10">
@@ -107,7 +106,6 @@ function gerarQrSMS() {
     });
 }
 
-// Função para baixar a imagem do QR Code
 function baixarCardSMS() {
     const img = document.getElementById("resultado_img");
 

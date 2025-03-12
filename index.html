@@ -57,82 +57,300 @@
 
 
         <div id="card" class="secao container">
-            <div class="container_sms container">
-                <div class="card_form formulario">
-                    <h3 class="titulo_div">Texto QR Code</h3>
-                    <div class="card_nome">
-                        <label class="titulo_nome" for="login">Seu nome</label>
+            <div class="container_card container">
+                <div class="div_container_wifi">
+                    <h3 class="titulo_div">Email QRCode</h3>
+                    <div class="dropdown active">
+                        <div class="dropdown-header" onclick="toggleDropdown(this)">
+                            <span class="infos_span">INFORMAÇÕES</span>
+                            <img class="mais_menos" src="./assets/icons/plus.png" alt="icon plus">
+                        </div>
+                        <div class="dropdown-content">
+                            <div class="wifi_form formulario">
+                                <div class="card_nome">
+                                    <label class="titulo_nome" for="login">Seu nome</label>
+                                    <div class="div_input-text">
+                                        <input class="input_text" id="sms_mensagem" type="text"
+                                            placeholder="Primeiro nome">
+                                        <input class="input_text" id="sms_mensagem" type="text" placeholder="Sobrenome">
+                                    </div>
+                                </div>
 
-                        <input class="input_text" id="sms_mensagem" type="text" placeholder="Primeiro nome">
-                        <input class="input_text" id="sms_mensagem" type="text" placeholder="Sobrenome">
-                    </div>
-                    <div class="card_nome">
-                        <label class="titulo_nome" for="login">Números</label>
+                                <div class="card_nome">
+                                    <label class="titulo_nome" for="login">Números</label>
+                                    <div class="div_input-text">
+                                        <input class="input_text text-email" id="sms_mensagem" type="text"
+                                            placeholder="seuemail@teste.com">
+                                        <div>
+                                            <input class="input_text text-contato" id="sms_mensagem" type="text"
+                                                placeholder="Celular">
+                                            <input class="input_text text-contato" id="sms_mensagem" type="text"
+                                                placeholder="Telefone">
+                                            <input class="input_text text-contato" id="sms_mensagem" type="text"
+                                                placeholder="Fax">
+                                        </div>
+                                    </div>
+                                </div>
 
-                        <input class="input_text" id="sms_mensagem" type="text" placeholder="Celular">
-                        <input class="input_text" id="sms_mensagem" type="text" placeholder="Telefone">
-                        <input class="input_text" id="sms_mensagem" type="text" placeholder="Fax">
-                    </div>
-                    <label class="titulo_nome" for="login">E-mail</label>
-                    <input class="input_text" id="sms_mensagem" type="text" placeholder="seuemail@teste.com">
-                    <div class="card_nome">
-                        <label class="titulo_nome" for="login">Empresa</label>
+                                <div class="card_nome">
+                                    <label class="titulo_nome" for="login">Empresa</label>
+                                    <div class="div_input-text">
+                                        <input class="empresa input_text " id="sms_mensagem" type="text"
+                                            placeholder="Empresa">
+                                        <input class="cargo input_text " id="sms_mensagem" type="text"
+                                            placeholder="Cargo">
+                                    </div>
+                                </div>
+                                <label class="titulo_nome" for="login">Endereço</label>
+                                <input class="input_text" id="sms_mensagem" type="text" placeholder="Sua rua">
 
-                        <input class="input_text" id="sms_mensagem" type="text" placeholder="Empresa">
-                        <input class="input_text" id="sms_mensagem" type="text" placeholder="Cargo">
-                    </div>
-                    <label class="titulo_nome" for="login">Endereço</label>
-                    <input class="input_text" id="sms_mensagem" type="text" placeholder="Sua rua">
+                                <div class="card_nome">
+                                    <input class="input_text input_text-cidade" id="sms_mensagem" type="text"
+                                        placeholder="Cidade">
+                                    <input class="input_text input_text-cep" id="sms_mensagem" type="text"
+                                        placeholder="CEP">
+                                </div>
+                                <input class="input_text" id="sms_mensagem" type="text" placeholder="Estado">
+                                <input class="input_text" id="sms_mensagem" type="text" placeholder="País">
+                                <input class="input_text" id="sms_mensagem" type="text" placeholder="www.website.com">
 
-                    <div class="card_nome">
-                        <input class="input_text input_text-cidade" id="sms_mensagem" type="text" placeholder="Cidade">
-                        <input class="input_text input_text-cep" id="sms_mensagem" type="text" placeholder="CEP">
+                            </div>
+                        </div>
                     </div>
-                    <input class="input_text" id="sms_mensagem" type="text" placeholder="Estado">
-                    <input class="input_text" id="sms_mensagem" type="text" placeholder="País">
-                    <input class="input_text" id="sms_mensagem" type="text" placeholder="www.website.com">
-                    <button class="code_generator button" onclick="gerarQrSMS()">Gerar QRCode</button>
+                    <div class="dropdown">
+                        <div class="dropdown-header" onclick="toggleDropdown(this)">
+                            <span class="infos_span">CORES</span>
+                            <img class="mais_menos" src="./assets/icons/plus.png" alt="icon plus">
+                        </div>
+                        <div class="dropdown-content">
+                            <div class="color-picker-container">
+                                <p>Cor do QRCode</p>
+                                <div class="div_picker">
+
+                                    <div class="custom-picker" id="custom-picker-1"></div>
+                                    <input type="color" id="color-picker-1" value="#1D1B31">
+                                    <input class="text_picker" type="text" id="color-text-1" value="#1D1B31">
+                                </div>
+                                <p>Cor de fundo</p>
+                                <div class="div_picker">
+
+                                    <div class="custom-picker" id="custom-picker-2"></div>
+                                    <input type="color" id="color-picker-2" value="#28F19C">
+                                    <input class="text_picker" type="text" id="color-text-2" value="#28F19C">
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <div class="dropdown-header" onclick="toggleDropdown(this)">
+                            <span class="infos_span">QR Code</span>
+                            <img class="mais_menos" src="./assets/icons/plus.png" alt="icon plus">
+                        </div>
+                        <div class="dropdown-content">
+                            <p>Aqui vai toda a lógica do QR Code.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="container_qrcode" id="qrcode_sms"></div>
+                <div class="container_qrcode container" id="qrcode">
+                    <h3 class="titulo_div">Aqui está seu QRCODE</h3>
+                    <div class="div_card_qrcode" id='div_card_qrcode'>
+                        <div class="card_qrcode">
+                            <div class="qr_img">
+                                <img class="resultado_img" id="resultadoImg" src="./assets/icons/qrcode_icon.png"
+                                    alt="QR Code">
+                            </div>
+
+                            <input type="range" id="sizeRange" class="range-input" min="100" max="2000" value="1000"
+                                step="10">
+                            <div class="div_sizeLabel">
+                                <p class="size_label-p" id=" ">Baixa qualidade</p>
+                                <p class="size_label" id="sizeLabel">1000 x 1000 px</p>
+                                <p class="size_label-p" id=" ">Alta qualidade</p>
+                            </div>
+                        </div>
+                        <div class="div_buttons">
+                            <button class="code_generator button" onclick="gerarQrSMS()">Gerar QRCode</button>
+                            <button class="code_generator" onclick="baixarCardWifi()">Baixar JPG</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-
+        </div>
 
         <div id="text" class="secao container">
-            <div class="container_sms container">
-                <div class="text_form formulario">
+
+            <div class="container_sms">
+                <div class="div_container_wifi">
                     <h3 class="titulo_div">Crie um QR Code de texto</h3>
-                    <label class="titulo_nome" for="login">Mensagem</label>
-                    <textarea class="input_text textarea-texto" name="textarea" id="textarea"
-                        placeholder="Digite sua mensagem"></textarea>
-                    <button class="code_generator button" onclick="gerarQrSMS()">Gerar QRCode</button>
+                    <div class="dropdown active">
+                        <div class="dropdown-header" onclick="toggleDropdown(this)">
+                            <span class="infos_span">INFORMAÇÕES</span>
+                            <img class="mais_menos" src="./assets/icons/plus.png" alt="icon plus">
+                        </div>
+                        <div class="dropdown-content">
+                            <div class="text_form formulario">
+                                <label class="titulo_nome" for="login">Mensagem</label>
+                                <textarea class="input_text textarea-texto" name="textarea" id="textarea"
+                                    placeholder="Digite sua mensagem"></textarea>
+            
+                            </div>
+                            <div class="container_qrcode" id="qrcode_sms"></div>
+
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <div class="dropdown-header" onclick="toggleDropdown(this)">
+                            <span class="infos_span">CORES</span>
+                            <img class="mais_menos" src="./assets/icons/plus.png" alt="icon plus">
+                        </div>
+                        <div class="dropdown-content">
+                            <div class="color-picker-container">
+                                <p>Cor do QRCode</p>
+                                <div class="div_picker">
+
+                                    <div class="custom-picker" id="custom-picker-1"></div>
+                                    <input type="color" id="color-picker-1" value="#1D1B31">
+                                    <input class="text_picker" type="text" id="color-text-1" value="#1D1B31">
+                                </div>
+                                <p>Cor de fundo</p>
+                                <div class="div_picker">
+
+                                    <div class="custom-picker" id="custom-picker-2"></div>
+                                    <input type="color" id="color-picker-2" value="#28F19C">
+                                    <input class="text_picker" type="text" id="color-text-2" value="#28F19C">
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <div class="dropdown-header" onclick="toggleDropdown(this)">
+                            <span class="infos_span">QR Code</span>
+                            <img class="mais_menos" src="./assets/icons/plus.png" alt="icon plus">
+                        </div>
+                        <div class="dropdown-content">
+                            <p>Aqui vai toda a lógica do QR Code.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="container_qrcode" id="qrcode_sms"></div>
+                <div class="container_qrcode container" id="qrcode">
+                    <h3 class="titulo_div">Aqui está seu QRCODE</h3>
+                    <div class="div_card_qrcode" id='div_card_qrcode'>
+                        <div class="card_qrcode">
+                            <div class="qr_img">
+                                <img class="resultado_img" id="resultadoImg" src="./assets/icons/qrcode_icon.png"
+                                    alt="QR Code">
+                            </div>
+
+                            <input type="range" id="sizeRange" class="range-input" min="100" max="2000" value="1000"
+                                step="10">
+                            <div class="div_sizeLabel">
+                                <p class="size_label-p" id=" ">Baixa qualidade</p>
+                                <p class="size_label" id="sizeLabel">1000 x 1000 px</p>
+                                <p class="size_label-p" id=" ">Alta qualidade</p>
+                            </div>
+                        </div>
+                        <div class="div_buttons">
+                            <button class="code_generator button" onclick="gerarQrSMS()">Gerar QRCode</button>
+                            <button class="code_generator" onclick="baixarCardWifi()">Baixar JPG</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
 
         <div id="email" class="secao container">
-            <div class="container_sms container">
-                <div class="email_form formulario">
-                    <h3 class="titulo_div">Texto QR Code</h3>
-                    <label class="titulo_nome" for="login">E-mail</label>
-                    <input class="input_text" id="sms_mensagem" type="text" placeholder="Seu e-mail">
-                    <label class="titulo_nome" for="login">Assunto</label>
-                    <input class="input_text" id="sms_mensagem" type="text" placeholder="Insira o assunto do e-mail">
-                    <label class="titulo_nome" for="login">Mensagem</label>
-                    <textarea class="input_text textarea" name="textarea" id="textarea"
-                        placeholder="Digite sua mensagem"></textarea>
-                    <button class="code_generator button" onclick="gerarQrSMS()">Gerar QRCode</button>
+
+            <div class="container_sms">
+                <div class="div_container_wifi">
+                    <h3 class="titulo_div">Email QRCode</h3>
+                    <div class="dropdown active">
+                        <div class="dropdown-header" onclick="toggleDropdown(this)">
+                            <span class="infos_span">INFORMAÇÕES</span>
+                            <img class="mais_menos" src="./assets/icons/plus.png" alt="icon plus">
+                        </div>
+                        <div class="dropdown-content">
+                            <div class="wifi_form formulario">
+                                <label class="titulo_nome" for="login">E-mail</label>
+                                <input class="input_text" id="sms_mensagem" type="text" placeholder="Seu e-mail">
+                                <label class="titulo_nome" for="login">Assunto</label>
+                                <input class="input_text" id="sms_mensagem" type="text"
+                                    placeholder="Insira o assunto do e-mail">
+                                <label class="titulo_nome" for="login">Mensagem</label>
+                                <textarea class="input_text textarea" name="textarea" id="textarea"
+                                    placeholder="Digite sua mensagem"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <div class="dropdown-header" onclick="toggleDropdown(this)">
+                            <span class="infos_span">CORES</span>
+                            <img class="mais_menos" src="./assets/icons/plus.png" alt="icon plus">
+                        </div>
+                        <div class="dropdown-content">
+                            <div class="color-picker-container">
+                                <p>Cor do QRCode</p>
+                                <div class="div_picker">
+
+                                    <div class="custom-picker" id="custom-picker-1"></div>
+                                    <input type="color" id="color-picker-1" value="#1D1B31">
+                                    <input class="text_picker" type="text" id="color-text-1" value="#1D1B31">
+                                </div>
+                                <p>Cor de fundo</p>
+                                <div class="div_picker">
+
+                                    <div class="custom-picker" id="custom-picker-2"></div>
+                                    <input type="color" id="color-picker-2" value="#28F19C">
+                                    <input class="text_picker" type="text" id="color-text-2" value="#28F19C">
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <div class="dropdown-header" onclick="toggleDropdown(this)">
+                            <span class="infos_span">QR Code</span>
+                            <img class="mais_menos" src="./assets/icons/plus.png" alt="icon plus">
+                        </div>
+                        <div class="dropdown-content">
+                            <p>Aqui vai toda a lógica do QR Code.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="container_qrcode" id="qrcode_sms"></div>
+                <div class="container_qrcode container" id="qrcode">
+                    <h3 class="titulo_div">Aqui está seu QRCODE</h3>
+                    <div class="div_card_qrcode" id='div_card_qrcode'>
+                        <div class="card_qrcode">
+                            <div class="qr_img">
+                                <img class="resultado_img" id="resultadoImg" src="./assets/icons/qrcode_icon.png"
+                                    alt="QR Code">
+                            </div>
+
+                            <input type="range" id="sizeRange" class="range-input" min="100" max="2000" value="1000"
+                                step="10">
+                            <div class="div_sizeLabel">
+                                <p class="size_label-p" id=" ">Baixa qualidade</p>
+                                <p class="size_label" id="sizeLabel">1000 x 1000 px</p>
+                                <p class="size_label-p" id=" ">Alta qualidade</p>
+                            </div>
+                        </div>
+                        <div class="div_buttons">
+                            <button class="code_generator button" onclick="gerarQrSMS()">Gerar QRCode</button>
+                            <button class="code_generator" onclick="baixarCardWifi()">Baixar JPG</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-
         <div id="sms" class="secao container">
-            <div class="container_wifi">
-
+            <div class="container_sms">
                 <div class="div_container_wifi">
                     <h3 class="titulo_div">SMS QR Code</h3>
                     <div class="dropdown active">
@@ -142,9 +360,10 @@
                         </div>
                         <div class="dropdown-content">
                             <div class="sms_form formulario">
-                                
+
                                 <label class="titulo_nome" for="login">Número</label>
-                                <input class="input_text input_text-sms" id="sms_mensagem" type="text" placeholder="SMS">
+                                <input class="input_text input_text-sms" id="sms_mensagem" type="text"
+                                    placeholder="SMS">
                                 <label class="titulo_nome" for="login">Mensagem</label>
                                 <textarea class="textarea textarea_sms" name="textarea" id="textarea"></textarea>
                             </div>
@@ -186,7 +405,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="container_qrcode container" id="qrcode_sms">
+                <div class="container_qrcode container" id="qrcode">
                     <h3 class="titulo_div">Aqui está seu QRCODE</h3>
                     <div class="div_card_qrcode" id='div_card_qrcode'>
                         <div class="card_qrcode">
@@ -212,9 +431,9 @@
             </div>
 
         </div>
+
         <div id="wifi" class="secao container">
             <div class="container_wifi">
-
                 <div class="div_container_wifi">
                     <h3 class="titulo_div">Wifi QR Code</h3>
                     <div class="dropdown active">

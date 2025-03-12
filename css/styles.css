@@ -20,7 +20,7 @@
 
 body {
   height: 100vh;
-  background-color: var(--co3);
+  background-color: var(--co2);
   font-family: var(--fonte-principal);
   color: white;
 }
@@ -106,7 +106,6 @@ a {
 
 .secao {
   display: none;
-  padding: 20px;
   background: var(--co3);
 
 }
@@ -195,16 +194,14 @@ a {
 }
 
 .container_wifi,
-.container_sms {
+.container_sms,
+.container_card {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: start;
-
+  height: 100vh;
   background-color: var(--co2);
-  box-shadow: 0px 0px 20px 0px var(--co8);
-  border-radius: 15px;
-
 }
 
 .wifi_form,
@@ -215,9 +212,23 @@ a {
 .url_form {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   border-radius: 15px;
+  width: 100%;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.formulario::-webkit-scrollbar {
+  width: 10px;
+  height: 8px;
+  background-color: var(--co3);
+  border-radius: 5px;
+}
+
+.formulario::-webkit-scrollbar-thumb {
+  background: var(--co8);
+  border-radius: 5px;
 }
 
 .div_container_wifi {
@@ -234,14 +245,38 @@ a {
   align-items: center;
   justify-content: start;
   width: 30%;
-  height: 92%;
+  height: 93.4%;
   background-color: var(--co3);
-  border-radius: 15px;
   padding: 2em 0;
   gap: 2em;
 }
 
+.div_input-text {
+  display: flex;
+  justify-content: center;
 
+  flex-wrap: wrap;
+}
+
+.div_input-text input {
+  width: 235px;
+}
+
+.empresa {
+  width: 300px !important;
+}
+
+.text-email {
+  width: 500px !important;
+}
+
+.cargo {
+  width: 165px !important;
+}
+
+.text-contato {
+  width: 145px !important;
+}
 
 .div_card_qrcode {
   display: flex;
@@ -250,8 +285,6 @@ a {
   justify-content: start;
   gap: 1em;
   border-radius: 15px;
-
-
 
 }
 
@@ -303,9 +336,9 @@ a {
   width: 500px;
   border: none;
   border-bottom: 2px solid var(--co8);
-  border-radius: 10px;
+
   color: var(--co4);
-  padding: 1em;
+  padding: .5em;
   font-size: 14px;
   margin: .5em;
   background-color: transparent;
